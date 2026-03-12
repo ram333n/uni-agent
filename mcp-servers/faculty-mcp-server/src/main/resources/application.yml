@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: faculty-mcp-server
+
+  ai:
+    mcp:
+      server:
+        name: faculty-mcp-server
+        version: 1.0.0
+        annotation-scanner:
+          enabled: true
+        protocol: streamable
+        streamable-http:
+          mcp-endpoint: /mcp
