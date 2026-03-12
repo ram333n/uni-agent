@@ -5,7 +5,7 @@ from langchain_core.messages import HumanMessage, AIMessageChunk
 
 @cl.on_chat_start
 async def on_chat_start():
-    agent = init_agent()
+    agent = await init_agent()
     cl.user_session.set("agent", agent)
     cl.user_session.set("history", [])
 
