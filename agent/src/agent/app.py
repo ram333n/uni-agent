@@ -1,5 +1,5 @@
 import chainlit as cl
-from agent import init_agent
+from agent.agent import init_agent
 from langchain_core.messages import HumanMessage, AIMessageChunk
 
 
@@ -26,7 +26,6 @@ async def on_message(message: cl.Message):
         {"messages": history},
         version="v2",
     ):
-        print(event)
         kind = event["event"]
         if kind == "on_chat_model_stream":
             chunk: AIMessageChunk = event["data"]["chunk"]

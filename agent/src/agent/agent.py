@@ -1,14 +1,16 @@
+import os
+
 from langchain.agents import create_agent
-from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 
 from prompts import SYSTEM_PROMPT
 from tools import get_current_time
 
 
 def init_agent():
-    llm = ChatOllama(
-        model="command-r:35b",
-        temperature=0.7
+    llm = ChatGroq(
+        model="llama-3.3-70b-versatile",
+        api_key=os.environ["GROQ_API_KEY"],
     )
 
     agent = create_agent(
