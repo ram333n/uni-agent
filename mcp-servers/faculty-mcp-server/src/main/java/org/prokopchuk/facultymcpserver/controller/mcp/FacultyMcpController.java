@@ -1,4 +1,4 @@
-package org.prokopchuk.facultymcpserver.controller;
+package org.prokopchuk.facultymcpserver.controller.mcp;
 
 import lombok.extern.log4j.Log4j2;
 import org.springaicommunity.mcp.annotation.McpTool;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 @Log4j2
 @Controller
-public class FacultyController {
+public class FacultyMcpController {
 
     @McpTool(
             name = "get_weather",
