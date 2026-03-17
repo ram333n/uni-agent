@@ -7,9 +7,12 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
+  liquibase:
+    changelog: classpath:/db/changelog/changelog-master.xml
+
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
 
   ai:
