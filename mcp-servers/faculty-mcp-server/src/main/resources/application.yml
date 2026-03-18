@@ -15,6 +15,16 @@ spring:
       ddl-auto: validate
     show-sql: true
 
+  mvc:
+    servlet:
+      path: /v1/api
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
   ai:
     mcp:
       server:
@@ -25,3 +35,17 @@ spring:
         protocol: streamable
         streamable-http:
           mcp-endpoint: /mcp
+
+    model:
+      embedding: none
+
+    ollama:
+      base-url: ${OLLAMA_URL:http://localhost:11434}
+
+storage:
+  documents:
+    path: ${DOCUMENTS_STORAGE_ROOT_PATH:/tmp/faculty-documents}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

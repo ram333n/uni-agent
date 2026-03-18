@@ -4,6 +4,19 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <include file="changes/2026-03-17-001-add-pgvector-extension.sql" relativeToChangelogFile="true"/>
+    <changeSet id="001" author="prokopchuk" runOnChange="false">
+        <comment>Add pgvector extension to enable vector similarity search</comment>
+        <sqlFile path="changes/2026-03-17-001-add-pgvector-extension.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="002" author="prokopchuk" runOnChange="false">
+        <comment>Initialize embeddings tables for semantic search</comment>
+        <sqlFile path="changes/2026-03-18-002-init-embeddings-tables.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="003" author="prokopchuk" runOnChange="false">
+        <comment>Create faculty_documents table for storing uploaded file metadata</comment>
+        <sqlFile path="changes/2026-03-19-003-init-faculty-documents-table.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 
 </databaseChangeLog>
