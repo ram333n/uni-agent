@@ -1,6 +1,7 @@
 package org.prokopchuk.facultymcpserver.config.ai;
 
 import org.springframework.ai.embedding.EmbeddingModel;
+import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.pgvector.PgVectorStore;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,15 @@ public class VectorStoreConfig {
                 .indexType(NONE)
                 .schemaName("public")
                 .maxDocumentBatchSize(1000)
+                .build();
+    }
+
+    @Bean
+    public TokenTextSplitter tokenTextSplitter() {
+        return TokenTextSplitter.builder() //TODO: no overlapping between chunks - need to implement!!!
+                .withChunkSize(800)
+                .withMinChunkSizeChars(300)
+                .withKeepSeparator(true)
                 .build();
     }
 

@@ -10,9 +10,13 @@ import org.prokopchuk.facultymcpserver.repository.FacultyDocumentRepository;
 import org.prokopchuk.facultymcpserver.service.FacultyDocumentService;
 import org.prokopchuk.facultymcpserver.service.FileService;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.reader.tika.TikaDocumentReader;
+import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.IntStream;
 
 @Log4j2
 @Service
@@ -33,15 +38,18 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
     private final FacultyDocumentRepository documentRepository;
     private final FileService fileService;
     private final VectorStore vectorStore;
+    private final TokenTextSplitter tokenTextSplitter;
 
     public FacultyDocumentServiceImpl(
             FacultyDocumentRepository documentRepository,
             FileService fileService,
-            @Qualifier("facultyDocumentVectorStore") VectorStore vectorStore
+            @Qualifier("facultyDocumentVectorStore") VectorStore vectorStore,
+            TokenTextSplitter tokenTextSplitter
     ) {
         this.documentRepository = documentRepository;
         this.fileService = fileService;
         this.vectorStore = vectorStore;
+        this.tokenTextSplitter = tokenTextSplitter;
     }
 
     @Override
@@ -57,7 +65,10 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
             throw new DuplicateDocumentException(contentHash);
         }
 
-        return saveDocument(file.getOriginalFilename(), fileBytes, contentHash);
+        Long documentId = saveDocument(file.getOriginalFilename(), fileBytes, contentHash);
+        saveDocumentEmbeddings(documentId, fileBytes);
+
+        return documentId;
     }
 
     private byte[] readFileBytes(MultipartFile file) {
@@ -81,6 +92,21 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         FacultyDocument saved = documentRepository.save(document);
 
         return saved.getId();
+    }
+
+    private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes) {
+        Resource resource = new ByteArrayResource(fileBytes);
+        TikaDocumentReader docReader = new TikaDocumentReader(resource);
+
+        List<Document> rawDocuments = docReader.read();
+        List<Document> chunks = tokenTextSplitter.split(rawDocuments);
+
+        for (int i = 0; i < chunks.size(); i++) {
+            chunks.get(i).getMetadata().put("documentId", documentId.toString());
+            chunks.get(i).getMetadata().put("chunkId", Integer.toString(i));
+        }
+
+        vectorStore.add(chunks);
     }
 
     @Override
@@ -118,7 +144,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         return new SemanticSearchResultEntry(
                 document.getText(),
                 document.getScore(),
-                null //TODO: link to original document
+                Long.valueOf(document.getMetadata().get("documentId").toString())
         );
     }
 
