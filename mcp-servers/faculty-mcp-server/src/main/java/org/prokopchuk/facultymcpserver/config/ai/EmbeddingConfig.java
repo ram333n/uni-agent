@@ -16,7 +16,7 @@ public class EmbeddingConfig {
                 .ollamaApi(ollamaApi)
                 .defaultOptions(
                         OllamaEmbeddingOptions.builder()
-                                .model("qwen3:0.6b")
+                                .model("qwen3-embedding:0.6b")
                                 .build()
                 )
                 .build();
