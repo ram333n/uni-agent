@@ -3,14 +3,13 @@ package org.prokopchuk.facultymcpserver.controller.rest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.prokopchuk.facultymcpserver.common.dto.ApiResponse;
 import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchRequest;
 import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchResults;
-import org.prokopchuk.facultymcpserver.common.exception.DuplicateDocumentException;
 import org.prokopchuk.facultymcpserver.service.FacultyDocumentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,20 +32,16 @@ public class DocumentController {
             summary = "Upload a faculty document",
             description = "Stores the file and indexes it for semantic search",
             responses = {
-                    @ApiResponse(responseCode = "201", description = "Document uploaded successfully", content = @Content(schema = @Schema(implementation = Long.class))),
-                    @ApiResponse(responseCode = "409", description = "Document already exists", content = @Content)
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201", description = "Document uploaded successfully", content = @Content(schema = @Schema(implementation = Long.class))),
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "409", description = "Document already exists", content = @Content)
             }
     )
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Long> uploadDocument(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ApiResponse<Long>> uploadDocument(@RequestParam("file") MultipartFile file) {
         log.info("Request on uploading document. File name: {}", file.getOriginalFilename());
-        try {
-            Long id = documentService.saveDocument(file);
-            return ResponseEntity.status(HttpStatus.CREATED).body(id);
-        } catch (DuplicateDocumentException e) {
-            log.warn("Rejected duplicate document upload: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        }
+        Long id = documentService.saveDocument(file);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ApiResponse.created("Document uploaded successfully", id));
     }
 
     @Operation(
@@ -54,11 +49,11 @@ public class DocumentController {
             description = "Stores the file and indexes it for semantic search"
     )
     @PostMapping("/embed")
-    public ResponseEntity<UUID> uploadString(String content) {
+    public ResponseEntity<ApiResponse<UUID>> uploadString(String content) {
         UUID id = documentService.embed(content);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(id);
+                .body(ApiResponse.created("Content embedded successfully", id));
     }
 
     @Operation(
@@ -66,13 +61,29 @@ public class DocumentController {
             description = "Stores the file and indexes it for semantic search"
     )
     @GetMapping("/semantic-search")
-    public ResponseEntity<SemanticSearchResults> findBySemanticSearch(@Valid @ModelAttribute SemanticSearchRequest request) {
+    public ResponseEntity<ApiResponse<SemanticSearchResults>> findBySemanticSearch(@Valid @ModelAttribute SemanticSearchRequest request) {
         log.info("Request on searching document by semantic search. Request: {}", request);
 
         SemanticSearchResults searchResults = documentService.findBySemanticSearch(request);
 
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(searchResults);
+        return ResponseEntity.ok(ApiResponse.ok("Search completed successfully", searchResults));
+    }
+
+    @Operation(
+            summary = "Delete document by id",
+            responses = {
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "204", description = "Document deleted successfully", content = @Content(schema = @Schema(implementation = Long.class))),
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Document not found", content = @Content)
+            }
+    )
+    @DeleteMapping("/{document-id}")
+    public ResponseEntity<ApiResponse<Void>> deleteDocument(@PathVariable("document-id") Long documentId) {
+        log.info("Request on deleting document by id. Document id: {}", documentId);
+
+        documentService.deleteDocument(documentId);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT)
+                .body(ApiResponse.noContent("Document deleted successfully"));
     }
 
 }

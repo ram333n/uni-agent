@@ -6,6 +6,7 @@ import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchResultEntry;
 import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchResults;
 import org.prokopchuk.facultymcpserver.common.exception.DuplicateDocumentException;
 import org.prokopchuk.facultymcpserver.domain.FacultyDocument;
+import org.prokopchuk.facultymcpserver.exception.ResourceNotFoundException;
 import org.prokopchuk.facultymcpserver.repository.FacultyDocumentRepository;
 import org.prokopchuk.facultymcpserver.service.FacultyDocumentService;
 import org.prokopchuk.facultymcpserver.service.FileService;
@@ -24,10 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.IntStream;
 
 @Log4j2
@@ -35,6 +33,7 @@ import java.util.stream.IntStream;
 public class FacultyDocumentServiceImpl implements FacultyDocumentService {
 
     private static final double DEFAULT_SIMILARITY_THRESHOLD = 0.5;
+    private static final String DOCUMENT_ID_KEY = "documentId";
     private final FacultyDocumentRepository documentRepository;
     private final FileService fileService;
     private final VectorStore vectorStore;
@@ -102,7 +101,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         List<Document> chunks = tokenTextSplitter.split(rawDocuments);
 
         for (int i = 0; i < chunks.size(); i++) {
-            chunks.get(i).getMetadata().put("documentId", documentId.toString());
+            chunks.get(i).getMetadata().put(DOCUMENT_ID_KEY, documentId.toString());
             chunks.get(i).getMetadata().put("chunkId", Integer.toString(i));
         }
 
@@ -144,8 +143,31 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         return new SemanticSearchResultEntry(
                 document.getText(),
                 document.getScore(),
-                Long.valueOf(document.getMetadata().get("documentId").toString())
+                Long.valueOf(document.getMetadata().get(DOCUMENT_ID_KEY).toString())
         );
+    }
+
+    @Override
+    @Transactional
+    public void deleteDocument(Long documentId) {
+        Optional<FacultyDocument> documentOpt = documentRepository.findById(documentId);
+
+        if (documentOpt.isEmpty()) {
+            throw new ResourceNotFoundException("Document with id " + documentId + " does not exist");
+        }
+
+        deleteEmbeddingsByDocumentId(documentId);
+        deleteDocumentFile(documentOpt.get());
+
+    }
+
+    private void deleteEmbeddingsByDocumentId(Long documentId) {
+        vectorStore.delete(String.format("%s == '%s'", DOCUMENT_ID_KEY, documentId));
+    }
+
+    private void deleteDocumentFile(FacultyDocument document) {
+        fileService.deleteFile(document.getFilePath());
+        documentRepository.deleteById(document.getId());
     }
 
 }

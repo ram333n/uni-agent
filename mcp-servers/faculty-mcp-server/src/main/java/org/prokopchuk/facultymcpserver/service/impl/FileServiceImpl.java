@@ -43,4 +43,13 @@ public class FileServiceImpl implements FileService {
         }
     }
 
+    @Override
+    public void deleteFile(String filePath) {
+        try {
+            Files.deleteIfExists(Path.of(filePath));
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to delete file: " + filePath, e);
+        }
+    }
+
 }

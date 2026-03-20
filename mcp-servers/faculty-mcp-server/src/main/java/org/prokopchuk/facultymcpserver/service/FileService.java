@@ -8,4 +8,6 @@ public interface FileService {
 
     Path persistToDisk(String fileName, byte[] fileBytes);
 
+    void deleteFile(String filePath);
+
 }

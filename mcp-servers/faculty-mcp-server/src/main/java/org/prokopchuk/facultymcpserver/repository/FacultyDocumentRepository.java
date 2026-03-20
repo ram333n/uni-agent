@@ -2,6 +2,7 @@ package org.prokopchuk.facultymcpserver.repository;
 
 import org.prokopchuk.facultymcpserver.domain.FacultyDocument;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 
 public interface FacultyDocumentRepository extends JpaRepository<FacultyDocument, Long> {
 

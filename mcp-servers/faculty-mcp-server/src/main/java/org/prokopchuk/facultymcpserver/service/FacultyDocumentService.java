@@ -14,4 +14,6 @@ public interface FacultyDocumentService {
 
     SemanticSearchResults findBySemanticSearch(SemanticSearchRequest request);
 
+    void deleteDocument(Long documentId);
+
 }
