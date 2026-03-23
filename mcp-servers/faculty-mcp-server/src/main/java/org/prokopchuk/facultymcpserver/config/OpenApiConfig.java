@@ -14,7 +14,8 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("Faculty MCP Server API")
                         .description("REST API for managing faculty documents")
-                        .version("1.0.0"));
+                        .version("1.0.0")
+                );
     }
 
 }

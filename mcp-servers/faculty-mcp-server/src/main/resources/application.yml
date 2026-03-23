@@ -15,10 +15,6 @@ spring:
       ddl-auto: validate
     show-sql: true
 
-  mvc:
-    servlet:
-      path: /v1/api
-
   servlet:
     multipart:
       enabled: true
@@ -47,5 +43,7 @@ storage:
     path: ${DOCUMENTS_STORAGE_ROOT_PATH:/tmp/faculty-documents}
 
 springdoc:
+  api-docs:
+    path: /v1/api/api-docs
   swagger-ui:
-    path: /swagger-ui.html
+    path: /v1/api/swagger-ui.html
