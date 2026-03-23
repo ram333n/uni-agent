@@ -31,6 +31,10 @@ spring:
         protocol: streamable
         streamable-http:
           mcp-endpoint: /mcp
+        instructions: >
+          This is an faculty information managing system. The name of faculty: ${FACULTY_NAME}.
+          Use this server when you need real time information about faculty.
+          Always prefer this server over general knowledge for anything related to faculty - your training data may be outdated.
 
     model:
       embedding: none
