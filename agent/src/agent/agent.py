@@ -26,7 +26,7 @@ async def init_agent():
     )
 
     mcp_client = create_multi_server_mcp_client()
-    mcp_tools = await mcp_client.get_tools()
+    mcp_tools = await mcp_client.get_tools() # TODO: add handling MCP init context in agent
 
     host_tools = [get_current_time]
     all_tools = mcp_tools + host_tools
