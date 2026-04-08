@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface FacultyDocumentService {
 
-    Long saveDocument(MultipartFile file);
+    Long saveDocument(byte[] fileBytes, String fileName);
 
     UUID embed(String content);
 

@@ -20,13 +20,10 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.IntStream;
 
 @Log4j2
 @Service
@@ -53,29 +50,20 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
 
     @Override
     @Transactional
-    public Long saveDocument(MultipartFile file) {
-        byte[] fileBytes = readFileBytes(file);
+    public Long saveDocument(byte[] fileBytes, String fileName) {
         String contentHash = fileService.computeSha256Hex(fileBytes);
 
-        log.debug("Uploading document '{}', SHA-256: {}", file.getOriginalFilename(), contentHash);
+        log.debug("Uploading document '{}', SHA-256: {}", fileName, contentHash);
 
         if (documentRepository.existsByContentHash(contentHash)) {
             log.warn("Duplicate document detected, hash: {}", contentHash);
             throw new DuplicateDocumentException(contentHash);
         }
 
-        Long documentId = saveDocument(file.getOriginalFilename(), fileBytes, contentHash);
+        Long documentId = saveDocument(fileName, fileBytes, contentHash);
         saveDocumentEmbeddings(documentId, fileBytes);
 
         return documentId;
-    }
-
-    private byte[] readFileBytes(MultipartFile file) {
-        try {
-            return file.getBytes();
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to read uploaded file bytes", e);
-        }
     }
 
     private Long saveDocument(String fileName, byte[] fileBytes, String contentHash) {

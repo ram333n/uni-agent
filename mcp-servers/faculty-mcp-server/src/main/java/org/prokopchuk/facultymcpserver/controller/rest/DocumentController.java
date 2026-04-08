@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @Log4j2
@@ -37,9 +38,9 @@ public class DocumentController {
             }
     )
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<ApiResponse<Long>> uploadDocument(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ApiResponse<Long>> uploadDocument(@RequestParam("file") MultipartFile file) throws IOException {
         log.info("Request on uploading document. File name: {}", file.getOriginalFilename());
-        Long id = documentService.saveDocument(file);
+        Long id = documentService.saveDocument(file.getBytes(), file.getOriginalFilename());
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.created("Document uploaded successfully", id));
     }
