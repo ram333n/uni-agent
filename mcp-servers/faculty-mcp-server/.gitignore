@@ -34,3 +34,5 @@ build/
 .vscode/
 
 tmp/
+
+src/test/resources/semantic-search-benchmark/docs/
