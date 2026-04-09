@@ -1,0 +1,26 @@
+{
+  "name": "questions",
+  "created_at": "2026-04-09T09:55:15.033208+00:00",
+  "questions": [
+    {
+      "question": "Хто є гарантом освітньої програми \"Бізнес-інформатика\"?",
+      "documents": [
+        "business-informatics-plan.pdf"
+      ],
+      "labels": [
+        "some-label"
+      ],
+      "comment": "Володимир ЗАСЛАВСЬКИЙ",
+      "id": "53e1f79a-945e-4cbb-abf3-7a2d83c4be12"
+    },
+    {
+      "question": "Скільки кредитів виділяється на написання кваліфікаційної магістерської роботи?",
+      "documents": [
+        "business-informatics-plan.pdf"
+      ],
+      "labels": [],
+      "comment": "10",
+      "id": "6f6c86ef-54e8-4500-8f11-35fbcf7c0d99"
+    }
+  ]
+}

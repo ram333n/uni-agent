@@ -21,7 +21,7 @@ def create_multi_server_mcp_client():
 
 async def init_agent():
     llm = ChatGroq(
-        model="llama-3.3-70b-versatile",
+        model="llama-3.3-70b-versatile", # TODO: replace with qwen3.5:9b
         api_key=os.environ["GROQ_API_KEY"],
     )
 

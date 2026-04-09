@@ -10,7 +10,10 @@ public record SemanticSearchResultEntry(
         Double similarityScore,
 
         @JsonPropertyDescription("Document unique identifier")
-        Long documentId
+        Long documentId,
+
+        @JsonPropertyDescription("Document name")
+        String documentName
 ) {
 
 }

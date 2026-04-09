@@ -128,10 +128,14 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
     }
 
     private SemanticSearchResultEntry mapToSemanticSearchResultEntry(Document document) {
+        Long documentId = Long.valueOf(document.getMetadata().get(DOCUMENT_ID_KEY).toString());
+        String documentName = documentRepository.findFileNameById(documentId);
+
         return new SemanticSearchResultEntry(
                 document.getText(),
                 document.getScore(),
-                Long.valueOf(document.getMetadata().get(DOCUMENT_ID_KEY).toString())
+                Long.valueOf(document.getMetadata().get(DOCUMENT_ID_KEY).toString()),
+                documentName
         );
     }
 
