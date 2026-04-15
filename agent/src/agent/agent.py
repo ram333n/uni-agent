@@ -21,9 +21,10 @@ def create_multi_server_mcp_client():
 
 async def init_agent():
     llm = ChatOllama(
-        model="qwen3.5:9b",
+        model="qwen2.5:7b", # TODO: tool invokation issue(schema violence)
         temperature=0.1,
-        base_url=os.environ["OLLAMA_BASE_URL"]
+        base_url=os.environ["OLLAMA_BASE_URL"],
+        reasoning=False
     )
 
     mcp_client = create_multi_server_mcp_client()
@@ -37,7 +38,7 @@ async def init_agent():
     agent = create_agent(
         model=llm,
         tools=all_tools,
-        system_prompt=SYSTEM_PROMPT
+        system_prompt=SYSTEM_PROMPT,
     )
 
     return agent
