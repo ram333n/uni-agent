@@ -1,8 +1,8 @@
 import os
 
 from langchain.agents import create_agent
-from langchain_groq import ChatGroq
 from langchain_mcp_adapters.client import MultiServerMCPClient
+from langchain_ollama import ChatOllama
 
 from agent.prompts import SYSTEM_PROMPT
 from agent.tools import get_current_time
@@ -20,9 +20,10 @@ def create_multi_server_mcp_client():
 
 
 async def init_agent():
-    llm = ChatGroq(
-        model="llama-3.3-70b-versatile", # TODO: replace with qwen3.5:9b
-        api_key=os.environ["GROQ_API_KEY"],
+    llm = ChatOllama(
+        model="qwen3.5:9b",
+        temperature=0.1,
+        base_url=os.environ["OLLAMA_BASE_URL"]
     )
 
     mcp_client = create_multi_server_mcp_client()
