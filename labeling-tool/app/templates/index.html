@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Datasets — Labeling Tool{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1 class="page-title">Datasets</h1>
+  <button class="btn btn--primary" onclick="openModal('create-modal')">+ New Dataset</button>
+</div>
+
+{% if datasets %}
+<div class="card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Questions</th>
+        <th>Created</th>
+        <th class="col-actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ds in datasets %}
+      <tr>
+        <td>
+          <a href="{{ url_for('dataset_page', name=ds.name) }}" class="link-primary">{{ ds.name }}</a>
+        </td>
+        <td>{{ ds.question_count }}</td>
+        <td class="text-muted">{{ ds.created_at[:10] if ds.created_at else '—' }}</td>
+        <td>
+          <div class="action-group">
+            <a href="{{ url_for('dataset_page', name=ds.name) }}" class="btn btn--sm btn--ghost">Open</a>
+            <button class="btn btn--sm btn--danger"
+              onclick="confirmDelete('{{ ds.name }}', 'dataset')">Delete</button>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="empty-state">
+  <p class="empty-state__text">No datasets yet. Create your first one!</p>
+</div>
+{% endif %}
+
+<!-- Create dataset modal -->
+<div id="create-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__backdrop" onclick="closeModal('create-modal')"></div>
+  <div class="modal__box">
+    <h2 id="modal-title" class="modal__title">New Dataset</h2>
+    <form method="post" action="{{ url_for('create_dataset') }}" class="form">
+      <div class="form-group">
+        <label for="name" class="form-label">Dataset Name</label>
+        <input id="name" name="name" type="text" class="form-input"
+          placeholder="e.g. admissions-2024"
+          pattern="[a-zA-Z0-9_\-]+"
+          title="Letters, numbers, hyphens, and underscores only"
+          required autofocus />
+        <p class="form-hint">Alphanumeric, hyphens and underscores only.</p>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn--ghost" onclick="closeModal('create-modal')">Cancel</button>
+        <button type="submit" class="btn btn--primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div id="delete-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title">
+  <div class="modal__backdrop" onclick="closeModal('delete-modal')"></div>
+  <div class="modal__box modal__box--sm">
+    <h2 id="delete-modal-title" class="modal__title">Delete Dataset</h2>
+    <p class="modal__body" id="delete-modal-msg">Are you sure?</p>
+    <div class="form-actions">
+      <button type="button" class="btn btn--ghost" onclick="closeModal('delete-modal')">Cancel</button>
+      <form id="delete-form" method="post" style="display:inline">
+        <button type="submit" class="btn btn--danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function confirmDelete(name, type) {
+  document.getElementById('delete-modal-msg').textContent =
+    `Delete ${type} "${name}"? This cannot be undone.`;
+  document.getElementById('delete-form').action = `/datasets/${name}/delete`;
+  openModal('delete-modal');
+}
+</script>
+{% endblock %}

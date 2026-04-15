@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}404 Not Found — Labeling Tool{% endblock %}
+
+{% block content %}
+<div class="empty-state empty-state--centered">
+  <div class="empty-state__code">404</div>
+  <p class="empty-state__text">The page or dataset you're looking for doesn't exist.</p>
+  <a href="{{ url_for('index') }}" class="btn btn--primary mt-sm">Back to Datasets</a>
+</div>
+{% endblock %}

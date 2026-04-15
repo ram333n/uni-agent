@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+{% block title %}{{ 'New Question' if is_new else 'Edit Question' }} — {{ dataset_name }}{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">
+  <a href="{{ url_for('index') }}" class="breadcrumb__link">Datasets</a>
+  <span class="breadcrumb__sep">/</span>
+  <a href="{{ url_for('dataset_page', name=dataset_name) }}" class="breadcrumb__link">{{ dataset_name }}</a>
+  <span class="breadcrumb__sep">/</span>
+  <span class="breadcrumb__current">{{ 'New Question' if is_new else 'Edit Question' }}</span>
+</nav>
+
+<div class="page-header">
+  <h1 class="page-title">{{ 'New Question' if is_new else 'Edit Question' }}</h1>
+  <button class="btn btn--ghost" onclick="openPreviewPanel()">Preview Files</button>
+</div>
+
+<div class="form-layout">
+  <div class="form-main">
+    <div class="card">
+      <form method="post"
+        action="{{ url_for('create_question', name=dataset_name) if is_new else url_for('update_question', name=dataset_name, qid=question.id) }}"
+        class="form" id="question-form">
+
+        <!-- ID (read-only on edit) -->
+        <div class="form-group">
+          <label class="form-label">Question ID</label>
+          <input type="text" class="form-input form-input--mono" value="{{ question.id }}" readonly />
+          <p class="form-hint">Auto-generated, read-only.</p>
+        </div>
+
+        <!-- Question text -->
+        <div class="form-group">
+          <label for="question" class="form-label">Question <span class="required">*</span></label>
+          <textarea id="question" name="question" class="form-textarea" rows="4"
+            placeholder="Enter the question text…" required>{{ question.question }}</textarea>
+        </div>
+
+        <!-- Documents -->
+        <div class="form-group">
+          <label class="form-label">Documents</label>
+          <div id="documents-list" class="field-list">
+            {% for doc in question.documents %}
+            <div class="field-list__row">
+              <input type="text" name="documents" class="form-input" value="{{ doc }}"
+                placeholder="filename.pdf" />
+              <button type="button" class="btn btn--sm btn--icon btn--danger-ghost"
+                onclick="removeRow(this)" title="Remove">✕</button>
+            </div>
+            {% endfor %}
+          </div>
+          <button type="button" class="btn btn--sm btn--ghost mt-sm" onclick="addDocumentRow()">
+            + Add Document
+          </button>
+        </div>
+
+        <!-- Labels -->
+        <div class="form-group">
+          <label class="form-label">Labels</label>
+          <div class="tag-input-wrapper" id="tag-wrapper">
+            <div class="tag-list" id="tag-list">
+              {% for label in question.labels %}
+              <span class="tag tag--removable">
+                {{ label }}
+                <button type="button" class="tag__remove" onclick="removeTag(this)" title="Remove">✕</button>
+                <input type="hidden" name="labels" value="{{ label }}" />
+              </span>
+              {% endfor %}
+            </div>
+            <input type="text" id="tag-input" class="tag-input__field"
+              placeholder="Type a label and press Enter…" />
+          </div>
+          <p class="form-hint">Press Enter to add a label. Click × to remove.</p>
+        </div>
+
+        <!-- Comment -->
+        <div class="form-group">
+          <label for="comment" class="form-label">Comment</label>
+          <textarea id="comment" name="comment" class="form-textarea" rows="3"
+            placeholder="Optional notes about this question…">{{ question.comment }}</textarea>
+        </div>
+
+        <div class="form-actions">
+          <a href="{{ url_for('dataset_page', name=dataset_name) }}" class="btn btn--ghost">Cancel</a>
+          <button type="submit" class="btn btn--primary">Save Question</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Preview panel (hidden by default) -->
+  <aside id="preview-panel" class="preview-panel preview-panel--closed">
+    <div class="preview-panel__header">
+      <h2 class="preview-panel__title">File Preview</h2>
+      <button class="btn btn--sm btn--icon btn--ghost" onclick="closePreviewPanel()" title="Close">✕</button>
+    </div>
+    <div class="preview-panel__file-picker">
+      <select id="file-select" class="form-input" onchange="previewFile(this.value)">
+        <option value="">— Select from docs/ —</option>
+      </select>
+      <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem;">
+        <label class="btn btn--sm btn--ghost" style="cursor:pointer;margin:0;">
+          Browse…
+          <input type="file" id="file-upload" accept=".pdf,.docx,.xlsx"
+            style="display:none" onchange="previewLocalFile(this)">
+        </label>
+        <span id="local-file-name" class="text-muted"
+          style="font-size:0.8125rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;"></span>
+      </div>
+    </div>
+    <div id="preview-content" class="preview-panel__content">
+      <p class="text-muted text-center mt-lg">Select a file above to preview it.</p>
+    </div>
+  </aside>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// ---- Documents list ----
+function addDocumentRow(value) {
+  const list = document.getElementById('documents-list');
+  const row = document.createElement('div');
+  row.className = 'field-list__row';
+  row.innerHTML = `
+    <input type="text" name="documents" class="form-input"
+      value="${value || ''}" placeholder="filename.pdf" />
+    <button type="button" class="btn btn--sm btn--icon btn--danger-ghost"
+      onclick="removeRow(this)" title="Remove">✕</button>
+  `;
+  list.appendChild(row);
+  row.querySelector('input').focus();
+}
+
+function removeRow(btn) {
+  btn.closest('.field-list__row').remove();
+}
+
+// ---- Tag input ----
+document.getElementById('tag-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const val = this.value.trim();
+    if (val) { addTag(val); this.value = ''; }
+  }
+});
+
+function addTag(value) {
+  const list = document.getElementById('tag-list');
+  const span = document.createElement('span');
+  span.className = 'tag tag--removable';
+  span.innerHTML = `${escapeHtml(value)}
+    <button type="button" class="tag__remove" onclick="removeTag(this)" title="Remove">✕</button>
+    <input type="hidden" name="labels" value="${escapeHtml(value)}" />`;
+  list.appendChild(span);
+}
+
+function removeTag(btn) {
+  btn.closest('.tag').remove();
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+          .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// ---- Preview panel ----
+async function openPreviewPanel() {
+  const panel = document.getElementById('preview-panel');
+  panel.classList.remove('preview-panel--closed');
+  const sel = document.getElementById('file-select');
+  if (sel.options.length <= 1) {
+    try {
+      const resp = await fetch('/api/files');
+      const files = await resp.json();
+      files.forEach(f => {
+        const opt = document.createElement('option');
+        opt.value = f.name;
+        opt.textContent = f.name;
+        sel.appendChild(opt);
+      });
+      if (files.length === 0) {
+        sel.innerHTML = '<option value="">No supported files found in docs/</option>';
+      }
+    } catch {
+      sel.innerHTML = '<option value="">Failed to load files</option>';
+    }
+  }
+}
+
+function closePreviewPanel() {
+  document.getElementById('preview-panel').classList.add('preview-panel--closed');
+}
+
+async function previewLocalFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  document.getElementById('local-file-name').textContent = file.name;
+  document.getElementById('file-select').value = '';
+  const content = document.getElementById('preview-content');
+  const ext = file.name.split('.').pop().toLowerCase();
+  content.innerHTML = '<p class="text-muted text-center mt-lg">Loading…</p>';
+  if (ext === 'pdf') {
+    const url = URL.createObjectURL(file);
+    content.innerHTML = `<iframe src="${url}" class="preview-iframe" title="PDF preview"></iframe>`;
+  } else {
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+      const resp = await fetch('/api/preview-file', { method: 'POST', body: formData });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      content.innerHTML = await resp.text();
+    } catch (e) {
+      content.innerHTML = `<p class="error">Failed to load preview: ${e.message}</p>`;
+    }
+  }
+}
+
+async function previewFile(filename) {
+  const content = document.getElementById('preview-content');
+  if (!filename) {
+    content.innerHTML = '<p class="text-muted text-center mt-lg">Select a file above to preview it.</p>';
+    return;
+  }
+  const ext = filename.split('.').pop().toLowerCase();
+  content.innerHTML = '<p class="text-muted text-center mt-lg">Loading…</p>';
+  if (ext === 'pdf') {
+    content.innerHTML = `<iframe src="/files/${encodeURIComponent(filename)}"
+      class="preview-iframe" title="PDF preview"></iframe>`;
+  } else {
+    try {
+      const resp = await fetch(`/files/${encodeURIComponent(filename)}`);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      content.innerHTML = await resp.text();
+    } catch (e) {
+      content.innerHTML = `<p class="error">Failed to load preview: ${e.message}</p>`;
+    }
+  }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}{{ dataset.name }} — Labeling Tool{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">
+  <a href="{{ url_for('index') }}" class="breadcrumb__link">Datasets</a>
+  <span class="breadcrumb__sep">/</span>
+  <span class="breadcrumb__current">{{ dataset.name }}</span>
+</nav>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">{{ dataset.name }}</h1>
+    <p class="text-muted">{{ dataset.questions | length }} question{{ 's' if dataset.questions | length != 1 else '' }}
+      &nbsp;·&nbsp; Created {{ dataset.created_at[:10] if dataset.created_at else '—' }}</p>
+  </div>
+  <a href="{{ url_for('new_question', name=dataset.name) }}" class="btn btn--primary">+ Add Question</a>
+</div>
+
+{% if dataset.questions %}
+<div class="card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th class="col-id">ID</th>
+        <th>Question</th>
+        <th>Documents</th>
+        <th>Labels</th>
+        <th class="col-actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in dataset.questions %}
+      <tr>
+        <td class="text-muted text-mono col-id" title="{{ q.id }}">{{ q.id[:8] }}…</td>
+        <td class="col-question">
+          <span class="question-preview">{{ q.question[:120] }}{% if q.question | length > 120 %}…{% endif %}</span>
+        </td>
+        <td>
+          {% if q.documents %}
+            <span class="badge badge--neutral">{{ q.documents | length }}</span>
+          {% else %}
+            <span class="text-muted">—</span>
+          {% endif %}
+        </td>
+        <td>
+          {% for label in q.labels %}
+            <span class="tag">{{ label }}</span>
+          {% else %}
+            <span class="text-muted">—</span>
+          {% endfor %}
+        </td>
+        <td>
+          <div class="action-group">
+            <a href="{{ url_for('edit_question', name=dataset.name, qid=q.id) }}"
+               class="btn btn--sm btn--ghost">Edit</a>
+            <button class="btn btn--sm btn--danger"
+              onclick="confirmDeleteQuestion('{{ dataset.name }}', '{{ q.id }}')">Delete</button>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="empty-state">
+  <p class="empty-state__text">No questions yet.
+    <a href="{{ url_for('new_question', name=dataset.name) }}" class="link-primary">Add the first one.</a>
+  </p>
+</div>
+{% endif %}
+
+<!-- Delete question confirmation modal -->
+<div id="delete-modal" class="modal" role="dialog" aria-modal="true">
+  <div class="modal__backdrop" onclick="closeModal('delete-modal')"></div>
+  <div class="modal__box modal__box--sm">
+    <h2 class="modal__title">Delete Question</h2>
+    <p class="modal__body">Are you sure you want to delete this question? This cannot be undone.</p>
+    <div class="form-actions">
+      <button type="button" class="btn btn--ghost" onclick="closeModal('delete-modal')">Cancel</button>
+      <form id="delete-q-form" method="post" style="display:inline">
+        <button type="submit" class="btn btn--danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function confirmDeleteQuestion(datasetName, qid) {
+  document.getElementById('delete-q-form').action =
+    `/datasets/${datasetName}/questions/${qid}/delete`;
+  openModal('delete-modal');
+}
+</script>
+{% endblock %}

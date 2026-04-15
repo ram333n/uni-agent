@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}File Preview — Labeling Tool{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1 class="page-title">File Preview</h1>
+</div>
+
+<div class="card">
+  <div class="form-group">
+    <label for="file-select-standalone" class="form-label">Select a file from docs/</label>
+    <select id="file-select-standalone" class="form-input" onchange="previewFileStandalone(this.value)">
+      <option value="">— Loading files… —</option>
+    </select>
+  </div>
+  <div id="preview-content-standalone" class="preview-standalone-content">
+    <p class="text-muted text-center mt-lg">Select a file above to preview it.</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(async () => {
+  const sel = document.getElementById('file-select-standalone');
+  try {
+    const resp = await fetch('/api/files');
+    const files = await resp.json();
+    sel.innerHTML = '<option value="">— Select a file —</option>';
+    files.forEach(f => {
+      const opt = document.createElement('option');
+      opt.value = f.name;
+      opt.textContent = f.name;
+      sel.appendChild(opt);
+    });
+    if (files.length === 0) {
+      sel.innerHTML = '<option value="">No supported files found in docs/</option>';
+    }
+  } catch {
+    sel.innerHTML = '<option value="">Failed to load file list</option>';
+  }
+})();
+
+async function previewFileStandalone(filename) {
+  const content = document.getElementById('preview-content-standalone');
+  if (!filename) {
+    content.innerHTML = '<p class="text-muted text-center mt-lg">Select a file above to preview it.</p>';
+    return;
+  }
+  const ext = filename.split('.').pop().toLowerCase();
+  content.innerHTML = '<p class="text-muted text-center mt-lg">Loading…</p>';
+  if (ext === 'pdf') {
+    content.innerHTML = `<iframe src="/files/${encodeURIComponent(filename)}"
+      class="preview-iframe preview-iframe--tall" title="PDF preview"></iframe>`;
+  } else {
+    try {
+      const resp = await fetch(`/files/${encodeURIComponent(filename)}`);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      content.innerHTML = await resp.text();
+    } catch (e) {
+      content.innerHTML = `<p class="error">Failed to load preview: ${e.message}</p>`;
+    }
+  }
+}
+</script>
+{% endblock %}

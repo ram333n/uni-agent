@@ -1,0 +1,228 @@
+{
+  "name": "test-eval-dataset-FINAL",
+  "created_at": "2026-04-15T10:45:32.315983+00:00",
+  "questions": [
+    {
+      "question": "Хто з представників академічної спільноти надав відгук на бакалаврську програму \"Прикладна математика\"?",
+      "documents": [
+        "001_program_description_applied_math_bachelor_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Олександр ТРОФИМЧУК, доктор тех. наук, професор, директор інституту телекомунікацій та глобального інформаційного простору НАН України",
+      "id": "65a27196-5ee5-432f-b04b-dc05d256d49e"
+    },
+    {
+      "question": "Які вибіркові блоки є в програмі \"Прикладна математика\" і скільки кредитів вони містять?",
+      "documents": [
+        "001_program_description_applied_math_bachelor_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: \"Обчислювальна математика\", \"Моделювання та оптимізація систем\", \"Дослідження операцій\". К-ть кредитів: 38",
+      "id": "e13479dd-8682-410f-ab99-4041c806b504"
+    },
+    {
+      "question": "Де знайти освітню програму з Програмної інженерії для бакалаврів?",
+      "documents": [
+        "002_program_description_software_engineering_bachelor_2025"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: ОСВІТНЬО-ПРОФЕСІЙНА ПРОГРАМА «ПРОГРАМНА ІНЖЕНЕРІЯ»",
+      "id": "cb7ff31b-c9ef-4a7b-9930-7159e14862bb"
+    },
+    {
+      "question": "Чим відрізняється вибіркова складова бакалаврської програми \"Системний аналіз\" від програми \"Інформатика\"?",
+      "documents": [
+        "003_program_description_informatics_bachelor_2025-03-24.pdf",
+        "004_program_description_system_analysis_bachelor_2025-03-24.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: ОНП \"Системний аналіз\", ОНП \"Інформатика\"",
+      "id": "5316cd25-0511-4eac-8f77-ec176a8746e3"
+    },
+    {
+      "question": "Де знайти сертифікатну програму з кібербезпеки?",
+      "documents": [
+        "005_certificate_program_cybersecurity_2025-06-02.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: \"ОСНОВИ КІБЕРБЕЗПЕКИ МАЛИХ ОРГАНІЗАЦІЙ\"",
+      "id": "d465dcdf-ed9a-45ab-98d1-36d75541a2e0"
+    },
+    {
+      "question": "Які представники бізнесу надали відгук на магістерську програму з \"Системного аналізу\"?",
+      "documents": [
+        "006_program_description_system_analysis_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Богданова Анастасія Олександрівна директор ТОВ. Центр обробки даних.",
+      "id": "cec47557-2fcc-4186-8129-67f92a95210d"
+    },
+    {
+      "question": "Які анломовні дисципліни є в магістерській програмі з \"Інженерії програмного забезпечення\"?",
+      "documents": [
+        "007_program_description_software_engineering_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer:\r\n- Розробка та використання інформаційних мереж\r\n- Сучасні операційні системи",
+      "id": "63466f98-aeb6-4c9c-8f66-2c346a402575"
+    },
+    {
+      "question": "Які окремі дисципліни присвячені Deep learning для програми \"Штучний інтелект\"?",
+      "documents": [
+        "008_program_description_artificial_intelligence_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Сучасні архітектури глибокого навчання",
+      "id": "ca225232-e200-4718-b324-9d574088149b"
+    },
+    {
+      "question": "Який вибірковий курс з управління ризиками є в програмі \"Інноваційні технології в комп'ютерних аналітичних системах\"?",
+      "documents": [
+        "009_program_description_computer_analytical_systems_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Кризис менеджмент та соціально-економічна безпека",
+      "id": "e0ce7c39-2589-4c02-9bb8-860f52a95147"
+    },
+    {
+      "question": "Хто очолює проєктну групу магістерської програми \"Інформатика\"",
+      "documents": [
+        "010_program_description_informatics_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Шкільняк С.С.",
+      "id": "0a5b8ccf-f6e0-49bf-b908-dcbe89a2a2b2"
+    },
+    {
+      "question": "Хто з представників ринку праці надав відгук на магістерську програму \"Прикладна математика\"?",
+      "documents": [
+        "011_program_description_applied_math_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Віктор Волохов",
+      "id": "13e4cb33-9ba4-4c33-9c7e-cf59408c5ae1"
+    },
+    {
+      "question": "Які компанії забезпечують стажування під час навчання на програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "012_program_description_math_methods_of_artificial_intelligence_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Самсунг Україна/ Samsung R&D Institute Ukraine, Global Logic,\r\nЛУН, ЛТД «Авора».",
+      "id": "9736cbae-adf5-4ed3-830b-778ea080fe2c"
+    },
+    {
+      "question": "Де знайти міждисциплінарну програму з соціології та аналізу даних?\"",
+      "documents": [
+        "013_program_description_social_data_analysis_master.docx"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 013_program_description_social_data_analysis_master.docx",
+      "id": "4868ee15-3062-4651-a41d-22006c49ce75"
+    },
+    {
+      "question": "Які вибіркові блоки пропонуються в магістерській програмі \"Системи і методи прийняття рішень\"?",
+      "documents": [
+        "006_program_description_system_analysis_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: \"Системний аналіз та прийняття рішень\" і \"Стохастичний аналіз систем\"",
+      "id": "1e50fda7-8157-444f-bf73-0d4e16c42727"
+    },
+    {
+      "question": "Які курси з інтелектуального аналізу даних є в програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "012_program_description_math_methods_of_artificial_intelligence_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: ОК.15 \"Актуальні проблеми Data Mining\"",
+      "id": "aab78f7a-bde4-453a-b513-98b82536ea81"
+    },
+    {
+      "question": "Який формат підсумкового оцінювання для освітньої програми \"Прикладна математика\" ступеня доктора філософії?",
+      "documents": [
+        "014_program_description_applied_math_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: публічний захист дисертації",
+      "id": "17acbf47-961d-48f7-8ea1-3a39f245bca1"
+    },
+    {
+      "question": "Хто зі співробітників інституту імені Глушкова надав експертну оцінку програмі \"Інженерія програмного забезпечення\" рівня доктор філософії?",
+      "documents": [
+        "015_program_description_software_engineering_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Петро СТЕЦЮК",
+      "id": "9ee678ef-a5a6-443d-b807-87c57cec58a7"
+    },
+    {
+      "question": "Де можна глянути кількість кредитів, яка виділяється на дисципліну, присвячену методології наукових досліджень в програмі \"Системний аналіз\" рівня доктор філософії?",
+      "documents": [
+        "016_program_description_system_analysis_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 016_program_description_system_analysis_phd_2025-03-24.pdf",
+      "id": "8fec3ac7-b68f-4c09-af6f-6ea14968b575"
+    },
+    {
+      "question": "Хто є головним проєктувальником програми \"Комп'ютерні науки\" рівня доктор філософії?",
+      "documents": [
+        "017_program_description_computer_science_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Василь Терещенко",
+      "id": "777a8571-8464-4016-ab07-986e2c7636c1"
+    },
+    {
+      "question": "Хто з членів проєктної групи програми \"Комп'ютерні науки\" для аспірантів має праці, присвячені теорії інформації?",
+      "documents": [
+        "017_program_description_computer_science_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Анатолій Анісімов",
+      "id": "23bc684b-e576-4899-b17d-c3b8cc9b46a3"
+    }
+  ]
+}
