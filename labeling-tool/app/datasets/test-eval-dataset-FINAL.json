@@ -71,7 +71,7 @@
       "id": "cec47557-2fcc-4186-8129-67f92a95210d"
     },
     {
-      "question": "Які анломовні дисципліни є в магістерській програмі з \"Інженерії програмного забезпечення\"?",
+      "question": "Які англомовні дисципліни є в магістерській програмі з \"Інженерії програмного забезпечення\"?",
       "documents": [
         "007_program_description_software_engineering_master_2025-03-24.pdf"
       ],
@@ -443,6 +443,122 @@
       ],
       "comment": "Right answer: 14 годин лабораторних робіт",
       "id": "175498ec-37e5-4fc4-84f7-f625340f3468"
+    },
+    {
+      "question": "Які алгоритми виявлення контурів та частотної фільтрації розглядаються в першому змістовому модулі курсу Computer vision?",
+      "documents": [
+        "026_disciplines_mmai_nnd09_computer_vision.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: алгоритми Кені та Собеля, лінійні і нелінійні фільтри, згладжування, згортка та фільтрація",
+      "id": "0916846f-5a93-46ee-91f7-61ae1aaad10b"
+    },
+    {
+      "question": "Які форми підсумкового контролю та види завдань передбачені на іспиті з курсу про паралельну обробку та зберігання даних?",
+      "documents": [
+        "027_disciplines_mmai_nnd10_distributed_systems_of_information_processing.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: письмова робота — 8 тестових та 4 письмових завдання; максимум 40 балів",
+      "id": "47299d3b-7c96-42de-b3e8-975e2b10c727"
+    },
+    {
+      "question": "Яка обов'язкова дисципліна першого курсу магістратури ММШІ охоплює техніки шардингу, реплікації та консенсусних алгоритмів?",
+      "documents": [
+        "027_disciplines_mmai_nnd10_distributed_systems_of_information_processing.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Розподілені системи обробки інформації",
+      "id": "03745b8d-03e0-4d53-833b-aa5d4025bb6d"
+    },
+    {
+      "question": "Які робочі програми визначають порядок проходження науково-дослідницьких практик?",
+      "documents": [
+        "028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf",
+        "030_disciplines_mmai_nnd14_research_practice_without_interruption.pdf"
+      ],
+      "labels": [
+        "navigational",
+        "multilabel"
+      ],
+      "comment": "Right answer: 028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf та 030_disciplines_mmai_nnd14_research_practice_without_interruption",
+      "id": "0ed41123-35fe-47a2-9408-197a63c43974"
+    },
+    {
+      "question": "Під час проходження яких практик передбачено дослідження ансамблевих алгоритмів ML, а також роботу з time series?",
+      "documents": [
+        "028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf",
+        "030_disciplines_mmai_nnd14_research_practice_without_interruption.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multilabel"
+      ],
+      "comment": "Right answer: 028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf та 030_disciplines_mmai_nnd14_research_practice_without_interruption",
+      "id": "0f1b1eb0-2f4b-4230-835e-ca046804bb31"
+    },
+    {
+      "question": "Які дві науково-дослідницькі практики програми ММШІ мають однаковий тематичний план, але проводяться в різних семестрах?",
+      "documents": [
+        "028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf",
+        "030_disciplines_mmai_nnd14_research_practice_without_interruption.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: практика з відривом від навчання (4 семестр, 4 кредити, 120 год.) та практика без відриву від навчання (2 семестр, 6 кредитів, 180 год.) — однаковий перелік тем, різний обсяг годин",
+      "id": "9e01f1ec-b100-416a-ada0-d23ed09a74dc"
+    },
+    {
+      "question": "До якого тижня семестру студент програми ММШІ зобов'язаний здати друкований прошитий примірник дипломної роботи разом із відгуком та рецензією?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: до 17 тижня семестру",
+      "id": "635c3e00-87fc-45fc-adef-bad1aa13aef2"
+    },
+    {
+      "question": "Яка складова оцінки за фінальний захист дипломної роботи магістра програми \"Математичні методи ШІ\" є найбільш вагомою і скільки балів вона становить?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: аналіз та інтерпретація отриманих результатів - 30 балів (максимум)",
+      "id": "2a86648d-fdb7-46bc-8153-95b60e330865"
+    },
+    {
+      "question": "Які документи студент ММШІ повинен подати до екзаменаційної комісії перед публічним захистом магістерської роботи?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: друкований примірник кваліфікаційної роботи, відгук наукового керівника з підписом, рецензія на роботу з підписом рецензента, документи про практичне використання/впровадження/апробацію результатів (за наявності)",
+      "id": "d377941d-99e4-4d76-b57f-71613b1db236"
+    },
+    {
+      "question": "Які кроки передбачає процедура підготовки магістерської дисертації від вибору теми до фінального захисту в програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: вибір керівника та подача заяви -> вивчення літератури -> складання календарного плану -> детальний план роботи -> теоретичні та прикладні дослідження -> перша редакція -> врахування зауважень керівника -> демонстрація результатів -> підготовка тез доповіді  -> перевірка на плагіат",
+      "id": "cc4786a9-8555-472b-bdd2-bd44bb4c535b"
     }
   ]
 }
