@@ -655,7 +655,7 @@
     {
       "question": "На якому тижні семестру студенти магістратури ОНП \"Математичні методи штучного інтелекту\" вивчають методи верифікації програм на основі пре- та постумов?",
       "documents": [
-        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf\""
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
       ],
       "labels": [
         "factoid"
