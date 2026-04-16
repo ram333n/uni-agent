@@ -559,6 +559,232 @@
       ],
       "comment": "Right answer: вибір керівника та подача заяви -> вивчення літератури -> складання календарного плану -> детальний план роботи -> теоретичні та прикладні дослідження -> перша редакція -> врахування зауважень керівника -> демонстрація результатів -> підготовка тез доповіді  -> перевірка на плагіат",
       "id": "cc4786a9-8555-472b-bdd2-bd44bb4c535b"
+    },
+    {
+      "question": "Хто є розробником робочої програми підготовки та захисту випускної роботи магістра в межах програми ММШІ?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Завадський Ігор Олександрович, д.ф.-м.н., доцент кафедри математичної інформатики",
+      "id": "4fc0daf3-6374-41fe-8666-447fd2662886"
+    },
+    {
+      "question": "Який алгоритм виявлення частих наборів елементів та його модифікації розглядаються в курсі актуальних проблем видобутку знань програми \"Математичні методи ШІ\"?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: алгоритм Apriori та його різновиди, зокрема FP-Growth",
+      "id": "8156bd14-75ee-49a6-9101-84f68b336f58"
+    },
+    {
+      "question": "Яка лабораторна робота з курсу про проблеми видобутку даних програми ММШІ передбачає пошук взаємозв'язків між атрибутами в наборі даних?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: лабораторна робота з теми 6 - застосування алгоритму Apriori для пошуку асоціативних правил",
+      "id": "c60e2e3a-c262-406b-99e1-d269a916657d"
+    },
+    {
+      "question": "В яких курсах програми ММШІ вивчається скорочення кількості вимірів як інструмент підготовки даних перед їх розбиттям на однорідні групи?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf",
+        "024_disciplines_mmai_nnd07_clustering_and_classification_of_information.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: «Актуальні проблеми Data Mining» (тема 15 — Dimension reduction) та «Кластеризація та класифікація інформації» (тема 13 — Групування і зменшення розмірності)",
+      "id": "01349bbb-c479-4d50-9b82-72ba606b4d63"
+    },
+    {
+      "question": "В яких дисциплінах програми \"Математичні методи штучного інтелекту\" розглядаються нечіткі підходи до розбиття даних на групи, зокрема fuzzy k-means?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf",
+        "024_disciplines_mmai_nnd07_clustering_and_classification_of_information.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: «Актуальні проблеми Data Mining» (самостійна робота теми 9 — fuzzy k-means, алгоритм Бредлі-Файяда-Рейна) та «Кластеризація та класифікація інформації» (самостійна робота теми 10 — нечіткі алгоритми кластеризації)",
+      "id": "049352e6-8d77-498c-99ce-b8abd70a44ad"
+    },
+    {
+      "question": "Які системи автоматизованого доведення теорем розглядаються на ОНП \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Isabelle",
+      "id": "a310b059-cf37-4148-95f2-bacb58b03972"
+    },
+    {
+      "question": "Cкільки контрольних робіт складає студент протягом семестру з математичної логіки?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 3",
+      "id": "9275a451-039a-47a9-8bda-623151708210"
+    },
+    {
+      "question": "Які методи виведення розглядаються у другій частині курсу з формальної логіки програми ММШІ?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: пропозиційні числення, числення предикатів, секвенційні та натуральні числення, метод резолюцій, системи переписування термів, числення для модальних та темпоральних логік",
+      "id": "d423645c-51dd-46fa-9f16-a9b7e4d010f9"
+    },
+    {
+      "question": "На якому тижні семестру студенти магістратури ОНП \"Математичні методи штучного інтелекту\" вивчають методи верифікації програм на основі пре- та постумов?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf\""
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: до 6 тижня",
+      "id": "e5fd7b31-b5b7-415d-9145-0a81f8626a90"
+    },
+    {
+      "question": "Скільки годин семінарів передбачено на обов'язковий курс з дидактики для магістрів \"Математичних методів штучного інтелекту\"?",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 12 годин семінарських занять",
+      "id": "6cd35673-f406-4e9f-b8f7-89ac7ca8deca"
+    },
+    {
+      "question": "Які форми самостійної роботи виконують студенти під час курсу з дидактики на магістратурі \"Математичних методів штучного інтелекту\"?",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: розробка власної версії робочої програми дисципліни; аналіз заняття викладача; рецензування освітньої програми за спеціальністю 122",
+      "id": "e8e1c3e9-5430-46b0-acd3-2e774b7710d3"
+    },
+    {
+      "question": "Де знайти програму обов'язкової магістерської дисципліни, де студенти імітують роботу університетського викладача ІТ?",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf",
+      "id": "0d480c60-a7a2-4f7d-96e2-51eed45bac70"
+    },
+    {
+      "question": "Яке практичне завдання коштує найбільше балів у семестровому оцінюванні курсу з педагогіки вищої школи програми ММШІ?\"",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Ділова гра — імітація професійної діяльності викладача ІТ-дисциплін (30 балів)",
+      "id": "e3828040-c797-497d-b2ae-0633a1db5121"
+    },
+    {
+      "question": "Де знайти програму обов'язкового магістерського курсу КНУ, що охоплює архітектуру ANSI/SPARC і життєвий цикл інформаційних систем?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 035_disciplines_mmai_nnd19_databases.pdf",
+      "id": "c8d52307-9f53-4c11-853a-e271da9519d2"
+    },
+    {
+      "question": "Чим відрізняється структура семестрового оцінювання курсу з баз даних від курсу з логіки та автоматизованого мислення програми \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf",
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: БД — 1 колоквіум (15 б.) + лабораторні роботи (45 б.) + іспит; логіка — 3 контрольні роботи (55 б.) + поточне оцінювання (5 б.) + іспит; БД має лабораторні, логіка — ні",
+      "id": "ca0954df-f4e8-4666-b66f-d4a36ee56893"
+    },
+    {
+      "question": "Які розширені конструкції семантичного моделювання розглядаються у курсі про БД програми ММШІ?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: тернарні зв'язки, рекурсивні зв'язки сутностей із собою, зв'язки \"є\", слабкі сутності",
+      "id": "2dd55fda-98a5-4271-aa14-23224270ec01"
+    },
+    {
+      "question": "Що студент має виконати у лабораторній роботі першої частини курсу з проєктування сховищ даних програми ММШІ?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: розробити ER-модель предметної області та реалізувати її у вигляді бази даних у СУБД за власним вибором, проаналізувати засоби супроводу",
+      "id": "7d672646-cc4b-4918-93cc-9098c02decfb"
+    },
+    {
+      "question": "Який рівень володіння іноземною мовою є обов'язковою передумовою для вступу на курс з проєктування БД програми ММШІ",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: B1 (технічна англійська)",
+      "id": "b791038a-072b-4352-8779-dc7d04f2bae9"
+    },
+    {
+      "question": "Який метод класифікації входить до тем першої контрольної роботи курсу Machine learning програми \"Математичні методи ШІ\"?",
+      "documents": [
+        "023_disciplines_mmai_nnd06_machine_learning.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: логістична регресія",
+      "id": "ea9a2e2f-0441-47a7-8947-2be33939ea90"
+    },
+    {
+      "question": "Який курс передбачає вивчення архітектури Autoencoder в рамках ОНП \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "019_disciplines_mmai_nnd02_deep_learning.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Глибинне навчання(Deep learning)",
+      "id": "d3425757-bcb4-4034-a889-bc1358290d27"
     }
   ]
 }
