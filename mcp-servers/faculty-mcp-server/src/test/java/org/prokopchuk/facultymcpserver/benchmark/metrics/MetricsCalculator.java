@@ -111,7 +111,52 @@ public final class MetricsCalculator {
     }
 
     private static double evaluateNormalizedDiscountedCumulativeGain(TestDatasetSearchResults searchResults) {
-        return 0.0; //TODO: implement
+        int topK = searchResults.topK();
+
+        return searchResults.questionsSearchResults().stream()
+                .mapToDouble(questionResults -> evaluateNdcgForQuestion(questionResults, topK))
+                .average()
+                .orElseThrow();
+    }
+
+    private static double evaluateNdcgForQuestion(TestQuestionSearchResults questionResults, int topK) {
+        Set<String> groundTruthDocs = new HashSet<>(questionResults.question().documents());
+
+        List<String> rankedDocs = questionResults.searchResults().results().stream()
+                .limit(topK)
+                .map(SemanticSearchResultEntry::documentName)
+                .toList();
+
+        double dcg = computeDcg(rankedDocs, groundTruthDocs);
+        double idcg = computeIdcg(groundTruthDocs, topK);
+
+        return idcg == 0.0 ? 0.0 : dcg / idcg;
+    }
+
+    private static double computeDcg(List<String> rankedDocs, Set<String> groundTruthDocs) {
+        double dcg = 0.0;
+        Set<String> seen = new HashSet<>();
+
+        for (int i = 0; i < rankedDocs.size(); i++) {
+            String doc = rankedDocs.get(i);
+
+            if (groundTruthDocs.contains(rankedDocs.get(i)) && seen.add(doc)) {
+                dcg += 1.0 / (Math.log(i + 2) / Math.log(2));
+            }
+        }
+
+        return dcg;
+    }
+
+    private static double computeIdcg(Set<String> groundTruthDocs, int topK) {
+        int relevantInTopK = Math.min(groundTruthDocs.size(), topK);
+        double idcg = 0.0;
+
+        for (int i = 0; i < relevantInTopK; i++) {
+            idcg += 1.0 / (Math.log(i + 2) / Math.log(2));
+        }
+
+        return idcg;
     }
 
 }
