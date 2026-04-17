@@ -1,26 +1,1324 @@
 {
-  "name": "questions",
-  "created_at": "2026-04-09T09:55:15.033208+00:00",
+  "name": "test-eval-dataset-FINAL",
+  "created_at": "2026-04-15T10:45:32.315983+00:00",
   "questions": [
     {
-      "question": "Хто є гарантом освітньої програми \"Бізнес-інформатика\"?",
+      "question": "Хто з представників академічної спільноти надав відгук на бакалаврську програму \"Прикладна математика\"?",
       "documents": [
-        "business-informatics-plan.pdf"
+        "001_program_description_applied_math_bachelor_2025-03-24.pdf"
       ],
       "labels": [
-        "some-label"
+        "factoid"
       ],
-      "comment": "Володимир ЗАСЛАВСЬКИЙ",
-      "id": "53e1f79a-945e-4cbb-abf3-7a2d83c4be12"
+      "comment": "Right answer: Олександр ТРОФИМЧУК, доктор тех. наук, професор, директор інституту телекомунікацій та глобального інформаційного простору НАН України",
+      "id": "65a27196-5ee5-432f-b04b-dc05d256d49e"
     },
     {
-      "question": "Скільки кредитів виділяється на написання кваліфікаційної магістерської роботи?",
+      "question": "Які вибіркові блоки є в програмі \"Прикладна математика\" і скільки кредитів вони містять?",
       "documents": [
-        "business-informatics-plan.pdf"
+        "001_program_description_applied_math_bachelor_2025-03-24.pdf"
       ],
-      "labels": [],
-      "comment": "10",
-      "id": "6f6c86ef-54e8-4500-8f11-35fbcf7c0d99"
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: \"Обчислювальна математика\", \"Моделювання та оптимізація систем\", \"Дослідження операцій\". К-ть кредитів: 38",
+      "id": "e13479dd-8682-410f-ab99-4041c806b504"
+    },
+    {
+      "question": "Де знайти освітню програму з Програмної інженерії для бакалаврів?",
+      "documents": [
+        "002_program_description_software_engineering_bachelor_2025"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: ОСВІТНЬО-ПРОФЕСІЙНА ПРОГРАМА «ПРОГРАМНА ІНЖЕНЕРІЯ»",
+      "id": "cb7ff31b-c9ef-4a7b-9930-7159e14862bb"
+    },
+    {
+      "question": "Чим відрізняється вибіркова складова бакалаврської програми \"Системний аналіз\" від програми \"Інформатика\"?",
+      "documents": [
+        "003_program_description_informatics_bachelor_2025-03-24.pdf",
+        "004_program_description_system_analysis_bachelor_2025-03-24.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: ОНП \"Системний аналіз\", ОНП \"Інформатика\"",
+      "id": "5316cd25-0511-4eac-8f77-ec176a8746e3"
+    },
+    {
+      "question": "Де знайти сертифікатну програму з кібербезпеки?",
+      "documents": [
+        "005_certificate_program_cybersecurity_2025-06-02.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: \"ОСНОВИ КІБЕРБЕЗПЕКИ МАЛИХ ОРГАНІЗАЦІЙ\"",
+      "id": "d465dcdf-ed9a-45ab-98d1-36d75541a2e0"
+    },
+    {
+      "question": "Які представники бізнесу надали відгук на магістерську програму з \"Системного аналізу\"?",
+      "documents": [
+        "006_program_description_system_analysis_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Богданова Анастасія Олександрівна директор ТОВ. Центр обробки даних.",
+      "id": "cec47557-2fcc-4186-8129-67f92a95210d"
+    },
+    {
+      "question": "Які англомовні дисципліни є в магістерській програмі з \"Інженерії програмного забезпечення\"?",
+      "documents": [
+        "007_program_description_software_engineering_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer:\r\n- Розробка та використання інформаційних мереж\r\n- Сучасні операційні системи",
+      "id": "63466f98-aeb6-4c9c-8f66-2c346a402575"
+    },
+    {
+      "question": "Які окремі дисципліни присвячені Deep learning для програми \"Штучний інтелект\"?",
+      "documents": [
+        "008_program_description_artificial_intelligence_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Сучасні архітектури глибокого навчання",
+      "id": "ca225232-e200-4718-b324-9d574088149b"
+    },
+    {
+      "question": "Який вибірковий курс з управління ризиками є в програмі \"Інноваційні технології в комп'ютерних аналітичних системах\"?",
+      "documents": [
+        "009_program_description_computer_analytical_systems_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Кризис менеджмент та соціально-економічна безпека",
+      "id": "e0ce7c39-2589-4c02-9bb8-860f52a95147"
+    },
+    {
+      "question": "Хто очолює проєктну групу магістерської програми \"Інформатика\"",
+      "documents": [
+        "010_program_description_informatics_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Шкільняк С.С.",
+      "id": "0a5b8ccf-f6e0-49bf-b908-dcbe89a2a2b2"
+    },
+    {
+      "question": "Хто з представників ринку праці надав відгук на магістерську програму \"Прикладна математика\"?",
+      "documents": [
+        "011_program_description_applied_math_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Віктор Волохов",
+      "id": "13e4cb33-9ba4-4c33-9c7e-cf59408c5ae1"
+    },
+    {
+      "question": "Які компанії забезпечують стажування під час навчання на програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "012_program_description_math_methods_of_artificial_intelligence_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Самсунг Україна/ Samsung R&D Institute Ukraine, Global Logic,\r\nЛУН, ЛТД «Авора».",
+      "id": "9736cbae-adf5-4ed3-830b-778ea080fe2c"
+    },
+    {
+      "question": "Де знайти міждисциплінарну програму з соціології та аналізу даних?\"",
+      "documents": [
+        "013_program_description_social_data_analysis_master.docx"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 013_program_description_social_data_analysis_master.docx",
+      "id": "4868ee15-3062-4651-a41d-22006c49ce75"
+    },
+    {
+      "question": "Які вибіркові блоки пропонуються в магістерській програмі \"Системи і методи прийняття рішень\"?",
+      "documents": [
+        "006_program_description_system_analysis_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: \"Системний аналіз та прийняття рішень\" і \"Стохастичний аналіз систем\"",
+      "id": "1e50fda7-8157-444f-bf73-0d4e16c42727"
+    },
+    {
+      "question": "Які курси з інтелектуального аналізу даних є в програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "012_program_description_math_methods_of_artificial_intelligence_master_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: ОК.15 \"Актуальні проблеми Data Mining\"",
+      "id": "aab78f7a-bde4-453a-b513-98b82536ea81"
+    },
+    {
+      "question": "Який формат підсумкового оцінювання для освітньої програми \"Прикладна математика\" ступеня доктора філософії?",
+      "documents": [
+        "014_program_description_applied_math_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: публічний захист дисертації",
+      "id": "17acbf47-961d-48f7-8ea1-3a39f245bca1"
+    },
+    {
+      "question": "Хто зі співробітників інституту імені Глушкова надав експертну оцінку програмі \"Інженерія програмного забезпечення\" рівня доктор філософії?",
+      "documents": [
+        "015_program_description_software_engineering_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Петро СТЕЦЮК",
+      "id": "9ee678ef-a5a6-443d-b807-87c57cec58a7"
+    },
+    {
+      "question": "Де можна глянути кількість кредитів, яка виділяється на дисципліну, присвячену методології наукових досліджень в програмі \"Системний аналіз\" рівня доктор філософії?",
+      "documents": [
+        "016_program_description_system_analysis_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 016_program_description_system_analysis_phd_2025-03-24.pdf",
+      "id": "8fec3ac7-b68f-4c09-af6f-6ea14968b575"
+    },
+    {
+      "question": "Хто є головним проєктувальником програми \"Комп'ютерні науки\" рівня доктор філософії?",
+      "documents": [
+        "017_program_description_computer_science_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Василь Терещенко",
+      "id": "777a8571-8464-4016-ab07-986e2c7636c1"
+    },
+    {
+      "question": "Хто з членів проєктної групи програми \"Комп'ютерні науки\" для аспірантів має праці, присвячені теорії інформації?",
+      "documents": [
+        "017_program_description_computer_science_phd_2025-03-24.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Анатолій Анісімов",
+      "id": "23bc684b-e576-4899-b17d-c3b8cc9b46a3"
+    },
+    {
+      "question": "Хто розробив робочу програму дисципліни з корпоративної та фахової моралі для магістрів програми \"Математичних методів штучного інтелекту\"?",
+      "documents": [
+        "018_disciplines_mmai_nnd01_professional_and_corporate_ethics.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Рогожа Марія Михайлівна",
+      "id": "06a636e1-af7e-4c89-9755-91c11b540764"
+    },
+    {
+      "question": "Які теми охоплює курс з прикладної моралі для ІТ-фахівців у частині, присвяченій цифровій відповідальності та алгоритмічним системам?",
+      "documents": [
+        "018_disciplines_mmai_nnd01_professional_and_corporate_ethics.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Тема 5 — Інформаційна етика (особливості етичної регуляції у галузі інформаційних технологій, основні моральні дилеми галузі); Тема 6 — Етичні проблеми у галузі штучного інтелекту (дилемні питання, що постають перед людиною в добу ШІ).",
+      "id": "97ed0e6b-d44c-443f-8184-d223417ce2bd"
+    },
+    {
+      "question": "Де знайти програму обов'язкової дисципліни з питань норм поведінки та ціннісних орієнтирів для студентів освітньо-наукової програми \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "018_disciplines_mmai_nnd01_professional_and_corporate_ethics.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: Робоча програма навчальної дисципліни «Професійна та корпоративна етика» для спеціальності 122 «Комп'ютерні науки», освітньо-наукової програми «Математичні методи штучного інтелекту», КНУ імені Тараса Шевченка.",
+      "id": "aa17f08b-3686-4cf3-8e60-cc3a3eb55dc6"
+    },
+    {
+      "question": "Які розділи охоплює дисципліна із застосування нейронних мереж для магістрів спеціальності 122(ММШІ), і скільки лекційних годин відведено на кожен із них?",
+      "documents": [
+        "019_disciplines_mmai_nnd02_deep_learning.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Частина I «Основи технології нейронних мереж» — 10 год. лекцій (теми 1–4); Частина II «Глибинні мережі переконань» — 10 год. лекцій (теми 5–8); Частина III «Застосування глибокого навчання» — 8 год. лекцій (теми 9–10). Загалом 26 год. лекцій.",
+      "id": "57dbcee5-cad4-4d43-987f-d4413880dacf"
+    },
+    {
+      "question": "У якому семестрі та на якому курсі магістратури викладається дисципліна з автоматичного аналізу текстів у програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "020_disciplines_mmai_nnd03_natural_language_processing.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: У 2 семестрі 2 курсу магістратури.",
+      "id": "2ee9490a-2239-4bfb-ba11-6d7011fc4e13"
+    },
+    {
+      "question": "Які практичні системи студенти можуть реалізувати в межах другої лабораторної роботи курсу з аналізу природномовних текстів?",
+      "documents": [
+        "020_disciplines_mmai_nnd03_natural_language_processing.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Система підтримки перекладу, чат-бот або система автоматичного реферування (варіант А); або вдосконалена система визначення тематичної структури корпусу з похибкою l1 не більше 0,5 (варіант Б).",
+      "id": "1f65c595-0315-4db7-b525-8df53e86a20f"
+    },
+    {
+      "question": "Які моделі процесу розробки програмного забезпечення розглядаються в другій частині курсу з командної розробки для магістрів ММШІ?",
+      "documents": [
+        "021_disciplines_mmai_nnd04_team_software_development.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Каскадна модель (V-Model, Dual Vee Model), ітеративна модель, спіральна модель, гнучка (Agile) модель та техніки Agile, а також техніки проектування ПЗ.",
+      "id": "7603a836-1c4e-489e-a712-e48f95e891c0"
+    },
+    {
+      "question": "Яку максимальну частку від початково визначених балів може отримати студент при повторному складанні контрольної роботи з дисципліни \"Командна розробка програмного продукту\"?",
+      "documents": [
+        "021_disciplines_mmai_nnd04_team_software_development.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 80% від початково визначених за контрольну роботу балів.",
+      "id": "f08f749d-cc95-4f59-b7ba-1d2f61876e91"
+    },
+    {
+      "question": "Де знайти програму обов'язкової магістерської дисципліни з організації спільної роботи над ІТ-проєктами для магістрів ММШІ?",
+      "documents": [
+        "021_disciplines_mmai_nnd04_team_software_development.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: Робоча програма навчальної дисципліни \"Командна розробка програмного продукту / Team Software Development\"",
+      "id": "622ae1f0-f4f1-488f-b99d-b130b06954db"
+    },
+    {
+      "question": "Яка мінімальна кількість балів, набрана впродовж семестру, дозволяє студенту скласти підсумковий іспит з курсу \"Штучний інтелект: принципи та методи\"?",
+      "documents": [
+        "022_disciplines_mmai_nnd05_principles_and_methods_of_ai.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 24 бали. Студент, який набрав менше 24 балів протягом семестру, не допускається до іспиту.",
+      "id": "7cbc2d0a-6ed0-459c-a9fa-4258507a675f"
+    },
+    {
+      "question": "Які системи студенти мають реалізувати в третій лабораторній роботі курсу з принципів та методів ШІ для магістрів \"Мат. методів штучного інтелекту\"?",
+      "documents": [
+        "022_disciplines_mmai_nnd05_principles_and_methods_of_ai.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Система сентимент-аналізу, рекомендаційна система або система кластеризації текстових корпусів.",
+      "id": "102940a9-53a0-47f8-ac90-83dfa9c85cf1"
+    },
+    {
+      "question": "Яку навчальну дисципліну мають опанувати студенти, що прагнуть вивчати алгоритми синтаксичного аналізу, приховані марківські моделі та методи кластеризації текстів у рамках магістерської програми \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "022_disciplines_mmai_nnd05_principles_and_methods_of_ai.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: Робоча програма навчальної дисципліни \"Штучний інтелект: принципи та методи\"",
+      "id": "399e2802-7f3e-4f7b-9950-2042fd6a35ed"
+    },
+    {
+      "question": "Яку альтернативу самостійній роботі може надати студент для зарахування відповідного компонента з дисципліни Machine learning ОНП \"Мат. методи штучного інтелекту\"?",
+      "documents": [
+        "023_disciplines_mmai_nnd06_machine_learning.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Сертифікат про успішне проходження курсу «Генетичні алгоритми» на Coursera (https://www.coursera.org/lecture/build-regression-classification-clustering-models/genetic-algorithms-PAQnY).",
+      "id": "b0ba5d2e-45ab-4dc4-9892-7cb2c9904151"
+    },
+    {
+      "question": "Які нейромережні підходи до розбиття даних на групи розглядаються в курсі з класифікації та кластерного аналізу для магістрів ММШІ?",
+      "documents": [
+        "024_disciplines_mmai_nnd07_clustering_and_classification_of_information.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Штучна нейронна мережа Кохонена та машина Больцмана (тема 15)",
+      "id": "a76714ac-2764-43b1-8e3f-2158bec49c8c"
+    },
+    {
+      "question": "Яку дисципліну варто шукати студенту, що цікавиться застосуванням діаграм Вороного, дендрограм для аналізу великих масивів даних у рамках програми «Математичні методи штучного інтелекту»",
+      "documents": [
+        "024_disciplines_mmai_nnd07_clustering_and_classification_of_information.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: Робоча програма навчальної дисципліни \"Кластеризація та класифікація інформації\"",
+      "id": "f39dc8b5-83ed-4b9c-bca9-7b554dbe4bc9"
+    },
+    {
+      "question": "Який компонент оцінювання має найбільшу вагу в підсумковій оцінці курсу з основ наукового пізнання та інтелектуальної власності для студентів ММШІ?",
+      "documents": [
+        "025_disciplines_mmai_nnd08_research_methodology_and_intellectual_property.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Реферат — 40 балів (максимум)",
+      "id": "4df719ad-d572-4d58-b66a-2630c203e84f"
+    },
+    {
+      "question": "Яка дисципліна ММШІ розглядає норми фальсифікаціонізму та принцип проліферації наук?",
+      "documents": [
+        "025_disciplines_mmai_nnd08_research_methodology_and_intellectual_property.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: Робоча програма навчальної дисципліни \"Методологія та організація наукових досліджень з основами інтелектуальної власності\"",
+      "id": "192d0265-446b-4e3a-a728-6430798bc4b2"
+    },
+    {
+      "question": "Які базові дисципліни студент повинен знати перед вивченням курсу про машинний зір та сприйняття зображень?",
+      "documents": [
+        "026_disciplines_mmai_nnd09_computer_vision.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Математичний аналіз, Лінійна алгебра і геометрія, Теорія ймовірностей і математична статистика, Програмування, Обчислювальна геометрія та комп'ютерна графіка, Алгоритми і структури даних, Сучасні методи машинного навчання, Актуальні проблеми Data Mining",
+      "id": "3d921fdb-aaaf-4e4a-8800-60a4bc1d82e0"
+    },
+    {
+      "question": "Які теми охоплює третій змістовий модуль курсу з комп'ютерного зору в межах освітньої програми ММШІ?",
+      "documents": [
+        "026_disciplines_mmai_nnd09_computer_vision.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Аналіз відео — оптичний потік та його математичний опис, визначення фону, трекінг, розпізнавання подій на відео",
+      "id": "2f082c29-2e1e-4052-8618-2a31ec63071c"
+    },
+    {
+      "question": "Скільки аудиторних годин відведено на практичні заняття з лабораторного практикуму в курсі про машинний зір?",
+      "documents": [
+        "026_disciplines_mmai_nnd09_computer_vision.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 14 годин лабораторних робіт",
+      "id": "175498ec-37e5-4fc4-84f7-f625340f3468"
+    },
+    {
+      "question": "Які алгоритми виявлення контурів та частотної фільтрації розглядаються в першому змістовому модулі курсу Computer vision?",
+      "documents": [
+        "026_disciplines_mmai_nnd09_computer_vision.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: алгоритми Кені та Собеля, лінійні і нелінійні фільтри, згладжування, згортка та фільтрація",
+      "id": "0916846f-5a93-46ee-91f7-61ae1aaad10b"
+    },
+    {
+      "question": "Які форми підсумкового контролю та види завдань передбачені на іспиті з курсу про паралельну обробку та зберігання даних?",
+      "documents": [
+        "027_disciplines_mmai_nnd10_distributed_systems_of_information_processing.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: письмова робота — 8 тестових та 4 письмових завдання; максимум 40 балів",
+      "id": "47299d3b-7c96-42de-b3e8-975e2b10c727"
+    },
+    {
+      "question": "Яка обов'язкова дисципліна першого курсу магістратури ММШІ охоплює техніки шардингу, реплікації та консенсусних алгоритмів?",
+      "documents": [
+        "027_disciplines_mmai_nnd10_distributed_systems_of_information_processing.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Розподілені системи обробки інформації",
+      "id": "03745b8d-03e0-4d53-833b-aa5d4025bb6d"
+    },
+    {
+      "question": "Які робочі програми визначають порядок проходження науково-дослідницьких практик?",
+      "documents": [
+        "028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf",
+        "030_disciplines_mmai_nnd14_research_practice_without_interruption.pdf"
+      ],
+      "labels": [
+        "navigational",
+        "multilabel"
+      ],
+      "comment": "Right answer: 028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf та 030_disciplines_mmai_nnd14_research_practice_without_interruption",
+      "id": "0ed41123-35fe-47a2-9408-197a63c43974"
+    },
+    {
+      "question": "Під час проходження яких практик передбачено дослідження ансамблевих алгоритмів ML, а також роботу з time series?",
+      "documents": [
+        "028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf",
+        "030_disciplines_mmai_nnd14_research_practice_without_interruption.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multilabel"
+      ],
+      "comment": "Right answer: 028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf та 030_disciplines_mmai_nnd14_research_practice_without_interruption",
+      "id": "0f1b1eb0-2f4b-4230-835e-ca046804bb31"
+    },
+    {
+      "question": "Які дві науково-дослідницькі практики програми ММШІ мають однаковий тематичний план, але проводяться в різних семестрах?",
+      "documents": [
+        "028_disciplines_mmai_nnd11_research_practice_with_interruption.pdf",
+        "030_disciplines_mmai_nnd14_research_practice_without_interruption.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: практика з відривом від навчання (4 семестр, 4 кредити, 120 год.) та практика без відриву від навчання (2 семестр, 6 кредитів, 180 год.) — однаковий перелік тем, різний обсяг годин",
+      "id": "9e01f1ec-b100-416a-ada0-d23ed09a74dc"
+    },
+    {
+      "question": "До якого тижня семестру студент програми ММШІ зобов'язаний здати друкований прошитий примірник дипломної роботи разом із відгуком та рецензією?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: до 17 тижня семестру",
+      "id": "635c3e00-87fc-45fc-adef-bad1aa13aef2"
+    },
+    {
+      "question": "Яка складова оцінки за фінальний захист дипломної роботи магістра програми \"Математичні методи ШІ\" є найбільш вагомою і скільки балів вона становить?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: аналіз та інтерпретація отриманих результатів - 30 балів (максимум)",
+      "id": "2a86648d-fdb7-46bc-8153-95b60e330865"
+    },
+    {
+      "question": "Які документи студент ММШІ повинен подати до екзаменаційної комісії перед публічним захистом магістерської роботи?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: друкований примірник кваліфікаційної роботи, відгук наукового керівника з підписом, рецензія на роботу з підписом рецензента, документи про практичне використання/впровадження/апробацію результатів (за наявності)",
+      "id": "d377941d-99e4-4d76-b57f-71613b1db236"
+    },
+    {
+      "question": "Які кроки передбачає процедура підготовки магістерської дисертації від вибору теми до фінального захисту в програмі \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: вибір керівника та подача заяви -> вивчення літератури -> складання календарного плану -> детальний план роботи -> теоретичні та прикладні дослідження -> перша редакція -> врахування зауважень керівника -> демонстрація результатів -> підготовка тез доповіді  -> перевірка на плагіат",
+      "id": "cc4786a9-8555-472b-bdd2-bd44bb4c535b"
+    },
+    {
+      "question": "Хто є розробником робочої програми підготовки та захисту випускної роботи магістра в межах програми ММШІ?",
+      "documents": [
+        "029_disciplines_mmai_nnd12_master_thesis.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Завадський Ігор Олександрович, д.ф.-м.н., доцент кафедри математичної інформатики",
+      "id": "4fc0daf3-6374-41fe-8666-447fd2662886"
+    },
+    {
+      "question": "Який алгоритм виявлення частих наборів елементів та його модифікації розглядаються в курсі актуальних проблем видобутку знань програми \"Математичні методи ШІ\"?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: алгоритм Apriori та його різновиди, зокрема FP-Growth",
+      "id": "8156bd14-75ee-49a6-9101-84f68b336f58"
+    },
+    {
+      "question": "Яка лабораторна робота з курсу про проблеми видобутку даних програми ММШІ передбачає пошук взаємозв'язків між атрибутами в наборі даних?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: лабораторна робота з теми 6 - застосування алгоритму Apriori для пошуку асоціативних правил",
+      "id": "c60e2e3a-c262-406b-99e1-d269a916657d"
+    },
+    {
+      "question": "В яких курсах програми ММШІ вивчається скорочення кількості вимірів як інструмент підготовки даних перед їх розбиттям на однорідні групи?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf",
+        "024_disciplines_mmai_nnd07_clustering_and_classification_of_information.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: «Актуальні проблеми Data Mining» (тема 15 — Dimension reduction) та «Кластеризація та класифікація інформації» (тема 13 — Групування і зменшення розмірності)",
+      "id": "01349bbb-c479-4d50-9b82-72ba606b4d63"
+    },
+    {
+      "question": "В яких дисциплінах програми \"Математичні методи штучного інтелекту\" розглядаються нечіткі підходи до розбиття даних на групи, зокрема fuzzy k-means?",
+      "documents": [
+        "031_disciplines_mmai_nnd15_data_mining_actual_problems.pdf",
+        "024_disciplines_mmai_nnd07_clustering_and_classification_of_information.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: «Актуальні проблеми Data Mining» (самостійна робота теми 9 — fuzzy k-means, алгоритм Бредлі-Файяда-Рейна) та «Кластеризація та класифікація інформації» (самостійна робота теми 10 — нечіткі алгоритми кластеризації)",
+      "id": "049352e6-8d77-498c-99ce-b8abd70a44ad"
+    },
+    {
+      "question": "Які системи автоматизованого доведення теорем розглядаються на ОНП \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Isabelle",
+      "id": "a310b059-cf37-4148-95f2-bacb58b03972"
+    },
+    {
+      "question": "Cкільки контрольних робіт складає студент протягом семестру з математичної логіки?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 3",
+      "id": "9275a451-039a-47a9-8bda-623151708210"
+    },
+    {
+      "question": "Які методи виведення розглядаються у другій частині курсу з формальної логіки програми ММШІ?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: пропозиційні числення, числення предикатів, секвенційні та натуральні числення, метод резолюцій, системи переписування термів, числення для модальних та темпоральних логік",
+      "id": "d423645c-51dd-46fa-9f16-a9b7e4d010f9"
+    },
+    {
+      "question": "На якому тижні семестру студенти магістратури ОНП \"Математичні методи штучного інтелекту\" вивчають методи верифікації програм на основі пре- та постумов?",
+      "documents": [
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: до 6 тижня",
+      "id": "e5fd7b31-b5b7-415d-9145-0a81f8626a90"
+    },
+    {
+      "question": "Скільки годин семінарів передбачено на обов'язковий курс з дидактики для магістрів \"Математичних методів штучного інтелекту\"?",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: 12 годин семінарських занять",
+      "id": "6cd35673-f406-4e9f-b8f7-89ac7ca8deca"
+    },
+    {
+      "question": "Які форми самостійної роботи виконують студенти під час курсу з дидактики на магістратурі \"Математичних методів штучного інтелекту\"?",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: розробка власної версії робочої програми дисципліни; аналіз заняття викладача; рецензування освітньої програми за спеціальністю 122",
+      "id": "e8e1c3e9-5430-46b0-acd3-2e774b7710d3"
+    },
+    {
+      "question": "Де знайти програму обов'язкової магістерської дисципліни, де студенти імітують роботу університетського викладача ІТ?",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf",
+      "id": "0d480c60-a7a2-4f7d-96e2-51eed45bac70"
+    },
+    {
+      "question": "Яке практичне завдання коштує найбільше балів у семестровому оцінюванні курсу з педагогіки вищої школи програми ММШІ?\"",
+      "documents": [
+        "033_disciplines_mmai_nnd17_teaching_methods_math_and_cs_in_higher_education.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Ділова гра — імітація професійної діяльності викладача ІТ-дисциплін (30 балів)",
+      "id": "e3828040-c797-497d-b2ae-0633a1db5121"
+    },
+    {
+      "question": "Де знайти програму обов'язкового магістерського курсу КНУ, що охоплює архітектуру ANSI/SPARC і життєвий цикл інформаційних систем?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 035_disciplines_mmai_nnd19_databases.pdf",
+      "id": "c8d52307-9f53-4c11-853a-e271da9519d2"
+    },
+    {
+      "question": "Чим відрізняється структура семестрового оцінювання курсу з баз даних від курсу з логіки та автоматизованого мислення програми \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf",
+        "032_disciplines_mmai_nnd16_logic_and_automated_deduction.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: БД — 1 колоквіум (15 б.) + лабораторні роботи (45 б.) + іспит; логіка — 3 контрольні роботи (55 б.) + поточне оцінювання (5 б.) + іспит; БД має лабораторні, логіка — ні",
+      "id": "ca0954df-f4e8-4666-b66f-d4a36ee56893"
+    },
+    {
+      "question": "Які розширені конструкції семантичного моделювання розглядаються у курсі про БД програми ММШІ?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: тернарні зв'язки, рекурсивні зв'язки сутностей із собою, зв'язки \"є\", слабкі сутності",
+      "id": "2dd55fda-98a5-4271-aa14-23224270ec01"
+    },
+    {
+      "question": "Що студент має виконати у лабораторній роботі першої частини курсу з проєктування сховищ даних програми ММШІ?",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: розробити ER-модель предметної області та реалізувати її у вигляді бази даних у СУБД за власним вибором, проаналізувати засоби супроводу",
+      "id": "7d672646-cc4b-4918-93cc-9098c02decfb"
+    },
+    {
+      "question": "Який рівень володіння іноземною мовою є обов'язковою передумовою для вступу на курс з проєктування БД програми ММШІ",
+      "documents": [
+        "035_disciplines_mmai_nnd19_databases.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: B1 (технічна англійська)",
+      "id": "b791038a-072b-4352-8779-dc7d04f2bae9"
+    },
+    {
+      "question": "Який метод класифікації входить до тем першої контрольної роботи курсу Machine learning програми \"Математичні методи ШІ\"?",
+      "documents": [
+        "023_disciplines_mmai_nnd06_machine_learning.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: логістична регресія",
+      "id": "ea9a2e2f-0441-47a7-8947-2be33939ea90"
+    },
+    {
+      "question": "Який курс передбачає вивчення архітектури Autoencoder в рамках ОНП \"Математичні методи штучного інтелекту\"?",
+      "documents": [
+        "019_disciplines_mmai_nnd02_deep_learning.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Глибинне навчання(Deep learning)",
+      "id": "d3425757-bcb4-4034-a889-bc1358290d27"
+    },
+    {
+      "question": "Які базові дисципліни викладаються на кафедрі обчислювальної математики?",
+      "documents": [
+        "036_departments_om.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: математичний аналіз, функціональний аналіз, рівняння математичної фізики, теорія функцій комплексної змінної, програмування, чисельні методи, методи оптимізації",
+      "id": "f000fb47-d102-4db1-876b-785a2eb8bf62"
+    },
+    {
+      "question": "Хто з викладачів кафедри ОМ займається розпізнаванням образів та біоінформатикою?",
+      "documents": [
+        "036_departments_om.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: професор Клюшин Дмитро Анатолійович; асистенти Голубєва Катерина Миколаївна та Гуляницький Андрій Леонідович",
+      "id": "ca865bed-c98f-4804-822e-3a1a5fccc7e5"
+    },
+    {
+      "question": "Які напрями наукових досліджень охоплює кафедра МСС відповідно до інтересів свого викладацького складу?",
+      "documents": [
+        "037_departments_mss.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: теорія прийняття рішень та експертні системи, математичне моделювання розподілених просторово-часових процесів, стійкість та оптимізація динамічних систем, еколого-економічне моделювання, цифрова обробка інформації, обчислювальні методи для сингулярних інтегральних рівнянь, комп'ютерна графіка та варіаційне числення",
+      "id": "7c336d76-a4a5-4c79-bc5c-58054c1e7b24"
+    },
+    {
+      "question": "Хто з викладачів кафедри МСС досліджує математичні методи в задачах ідентифікації та прогнозування процесів в економіці?",
+      "documents": [
+        "037_departments_mss.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Кулян Віктор Романович (математичні методи ідентифікації систем, моделювання лінійних та нелінійних процесів в економіці)",
+      "id": "0eb18e5c-2b6c-46ed-9813-00ed32199778"
+    },
+    {
+      "question": "Хто завідує кафедрою, що готує фахівців з математичного програмування та задач оптимізації?",
+      "documents": [
+        "038_departments_do.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: професор, доктор фізико-математичних наук Іксанов Олександр Маратович",
+      "id": "2e54ada7-8bf6-494c-8114-b46a770f9828"
+    },
+    {
+      "question": "Де знайти інформацію про підготовку спеціалістів у галузі стохастичного аналізу та теорії масового обслуговування?",
+      "documents": [
+        "038_departments_do.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: кафедра дослідження операцій (ДО)",
+      "id": "5e940287-b717-4416-b012-48005360f555"
+    },
+    {
+      "question": "Які обов'язкові навчальні дисципліни викладають працівники кафедри ДО?",
+      "documents": [
+        "038_departments_do.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: алгебра та аналітична геометрія, дослідження операцій, лінійна алгебра",
+      "id": "63e29ad2-cec8-45c9-8354-f63273b2021f"
+    },
+    {
+      "question": "Які нормативні курси охоплює навчальна програма кафедри САТР?",
+      "documents": [
+        "039_departments_satr.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Системний аналіз, Конфліктно-керовані системи, Комп'ютерні мережі, Системна оптимізація, Теорія прийняття рішень, Архітектура обчислювальних систем, Вступ до дослідження операцій, Операційні системи, Статистична теорія прийняття рішень, Теорія екстремальних задач, Сучасні технології програмування, Системи підтримки прийняття рішень, Невизначеність та групування інформації, Задачі прикладного системного аналізу",
+      "id": "b97db72a-51aa-4912-b778-c50e333ab39a"
+    },
+    {
+      "question": "Де знайти інформацію про підготовку фахівців з прийняття рішень в умовах невизначеності та нечіткої інформації?",
+      "documents": [
+        "039_departments_satr.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: кафедра системного аналізу та теорії прийняття рішень (САТР)",
+      "id": "78278d05-496a-4427-a91d-53836cf53770"
+    },
+    {
+      "question": "Хто очолює кафедру, що здійснює підготовку магістрів за програмою \"Системи і методи прийняття рішень\"?",
+      "documents": [
+        "039_departments_satr.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: доцент, ст.н.с., доктор фізико-математичних наук Капустян Олена Анатоліївна",
+      "id": "518db42a-a980-42c5-9491-be94a5929c17"
+    },
+    {
+      "question": "Хто очолює кафедру, що спеціалізується на фінансовій та актуарній математиці й стохастичному аналізі?",
+      "documents": [
+        "040_departments_ps.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: доцент, доктор фізико-математичних наук Розора Ірина Василівна",
+      "id": "a4e32f4f-6ff5-4852-9041-0698bdf4b2d7"
+    },
+    {
+      "question": "Які обов'язкові дисципліни вивчають студенти кафедри прикладної статистики?",
+      "documents": [
+        "040_departments_ps.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: теорія ймовірностей, математична статистика, аналіз даних, актуарна математика, математичні методи обробки інформації, математика фінансів, аналіз та оптимізація ризику, мережі масового обслуговування, байєсовські мережі, математичні моделі страхових та пенсійних схем",
+      "id": "d8e1a243-e727-4169-b841-ab19869a75a0"
+    },
+    {
+      "question": "Де знайти інформацію про підготовку фахівців з комп'ютерної лінгвістики та захисту інформації на ФКНК?",
+      "documents": [
+        "041_departments_mi.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: кафедра математичної інформатики (МІ)",
+      "id": "5cd57a17-3c3a-4125-b0fb-2ef6e9096560"
+    },
+    {
+      "question": "На яких кафедрах ФКНК викладачі займаються онтологіями, обробкою природної мови або аналізом текстів?",
+      "documents": [
+        "041_departments_mi.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: МІ: Марченко Олександр Олександрович (штучний інтелект, комп'ютерна лінгвістика, аналіз текстів природною мовою, онтологічні бази знань), Тарануха Володимир Юрійович (комп'ютерна лінгвістика, штучний інтелект) — обидва з кафедри МІ",
+      "id": "083f685e-2084-4336-b8b2-e26254be38d3"
+    },
+    {
+      "question": "Які навчальні курси читають викладачі кафедри математичної інформатики?",
+      "documents": [
+        "041_departments_mi.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Алгоритміка, Інформаційні системи та бази даних, Штучний інтелект, Обчислювальна геометрія та комп'ютерна графіка",
+      "id": "efe6a997-657a-40c5-bb5d-b2ef903ef34d"
+    },
+    {
+      "question": "Які викладачі кафедри ТК займаються інтелектуальним аналізом даних?",
+      "documents": [
+        "042_departments_tc.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Пашко Анатолій Олексійович (інтелектуальний аналіз даних), Трохимчук Ростислав Миколайович (Data Mining), Карнаух Тетяна Олександрівна (інтелектуальний аналіз даних)",
+      "id": "5e21775e-39a8-4b5b-b32d-29ed584b13b1"
+    },
+    {
+      "question": "Чим відрізняється науковий профіль кафедри ТК від кафедри МІ в частині підходів до розпізнавання образів і штучного інтелекту?",
+      "documents": [
+        "042_departments_tc.pdf",
+        "041_departments_mi.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multilabel"
+      ],
+      "comment": "Right answer: кафедра ТК акцентує на робототехніці, людино-комп'ютерному інтерфейсі, розпізнаванні жестів, нейронних мережах і Data Mining; кафедра МІ — на комп'ютерній лінгвістиці, онтологічних базах знань, аналізі текстів природною мовою та розподілених обчисленнях",
+      "id": "98f72d74-0a4b-4f70-9eaa-d30f6eea171c"
+    },
+    {
+      "question": "Які базові дисципліни викладають співробітники кафедри теоретичної кібернетики?",
+      "documents": [
+        "042_departments_tc.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Комп'ютерні та інформаційні мережі, Дискретна математика, Основи програмування, Комп'ютерна алгебра",
+      "id": "48cc74f1-c32d-4b51-be00-4d517e322841"
+    },
+    {
+      "question": "Хто очолює кафедру ФКНК, що готує фахівців у галузі біоінформатики та нейроінформатики?",
+      "documents": [
+        "042_departments_tc.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: професор, доктор фізико-математичних наук Крак Юрій Васильович",
+      "id": "dc078a4c-a5c6-46cd-a681-379269c1e330"
+    },
+    {
+      "question": "Які нормативні дисципліни викладає кафедра теорії та технологій програмування?",
+      "documents": [
+        "043_departments_ttp.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Програмування, Теорія алгоритмів, Математична логіка, Системне програмування, Теорія обчислень, Інформаційні технології",
+      "id": "187fb1cc-2659-4a4e-9bfc-7fe8554612ca"
+    },
+    {
+      "question": "Хто з викладачів кафедри ТТП займається grid-технологіями, хмарними системами та агентно-орієнтованим програмуванням?",
+      "documents": [
+        "043_departments_ttp.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Дорошенко Анатолій Юхимович (кластерні паралельні обчислення, grid-технології і хмарні системи, агентно-орієнтовані технології)",
+      "id": "812dd214-31ae-4329-a907-6fe25e19ae3f"
+    },
+    {
+      "question": "Хто з асистентів кафедри ТТП має найширший перелік напрямів у галузі комп'ютерного зору та глибокого навчання?",
+      "documents": [
+        "043_departments_ttp.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Терещенко Ярослав Васильович (CV/ML/DL, RL, 3D реконструкція, генеративні моделі, дифузійні процеси, object detection, panoptic segmentation, NN optimization, transformers, SLAM, NeRF, Gaussian splatting, OCR, NLP, ViT, Motion analysis, Sensor fusion)",
+      "id": "4e7a8226-aba7-48f8-a25a-810184aec612"
+    },
+    {
+      "question": "Хто з викладачів кафедри ІПС займається теорією мереж Петрі та верифікацією програмного забезпечення?",
+      "documents": [
+        "044_departments_ips.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Кривий Сергій Лук'янович (теорія автоматів, теорія мереж Петрі, верифікація програмного забезпечення)",
+      "id": "d448d62d-c783-49fd-8cbf-94c567e928c0"
+    },
+    {
+      "question": "Хто з викладачів кафедри ІПС займається методами оптимізації негладких функцій та задачами лінійного і нелінійного програмування?",
+      "documents": [
+        "044_departments_ips.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Стецюк Петро Іванович (лінійне та нелінійне програмування, методи мінімізації негладких функцій, задачі оптимізації)",
+      "id": "f05bfabf-a943-441c-9e81-c7989c5806d7"
+    },
+    {
+      "question": "Хто очолює кафедру ФКНК, що спеціалізується на програмній інженерії та інтелектуальних інформаційних системах?",
+      "documents": [
+        "044_departments_ips.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: професор, доктор фізико-математичних наук Провотар Олександр Іванович",
+      "id": "fd20421e-9957-4d70-b2f1-445ee6bf73bd"
+    },
+    {
+      "question": "Хто є укладачами методичних вказівок з оформлення кваліфікаційних та курсових робіт ФКНК 2025 року?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Карнаух Т.О., Омельчук Л.Л., Ставровський А.Б.",
+      "id": "2a96eacb-04ab-4ac4-bf67-6f17f7e68e66"
+    },
+    {
+      "question": "Яким є допустимий обсяг дипломної роботи магістра за вимогами, і скільки сторінок має займати основна частина?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: загальний обсяг 50–70 сторінок, основна частина - щонайменше 35 сторінок",
+      "id": "f55226f3-de8c-4ac5-a7e6-bdebf7171b0a"
+    },
+    {
+      "question": "Де знайти офіційний документ ФКНК з вимогами до структури та оформлення дипломних і курсових робіт?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 046_library_thesis_writing_tutorial.pdf",
+      "id": "bb0fbd3b-a433-4ab0-bab6-4435bed9d09f"
+    },
+    {
+      "question": "Які обов'язкові структурні частини повинна містити дипломна або курсова робота на ФКНК?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: титульний аркуш, реферат, зміст, скорочення та умовні познаки (за потреби), вступ, основна частина (розділи), висновки, перелік джерел посилання, додатки (за потреби)",
+      "id": "c38f460a-dd80-40a7-8cba-eff2fc5c4b17"
+    },
+    {
+      "question": "Які шрифти та поля сторінки вимагаються при оформленні дипломної роботи на факультеті комп'ютерних наук та кібернетики?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Times New Roman Cyr розмір 14 пт, міжрядковий інтервал 1,5; поля: верхнє і нижнє - не менше 20 мм, ліве - не менше 25 мм, праве - не менше 10 мм; абзацний відступ 1,27 см",
+      "id": "d6d53044-1fa7-45fc-a1a9-8b2bb231cb92"
+    },
+    {
+      "question": "Чи вважається використання генеративного ШІ для написання частин кваліфікаційної роботи порушенням академічної доброчесності згідно з вимогами ФКНК?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: так, використання штучного інтелекту для написання частин курсової або кваліфікаційної роботи прямо названо різновидом академічного плагіату та порушенням академічної доброчесності",
+      "id": "325f171f-354f-47fd-9cda-b685077543d8"
+    },
+    {
+      "question": "Яким вимогам має відповідати зовнішній рецензент кваліфікаційної роботи бакалавра або магістра ФКНК?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: фахівець з організації/установи/закладу освіти у відповідній галузі, який має науковий ступінь (доктор філософії/кандидат наук/доктор наук) або працює на керівній посаді; не є співробітником кафедри наукового керівника студента",
+      "id": "571ed6b4-b0db-4768-a95b-70eb5f03d83e"
+    },
+    {
+      "question": "Яким стандартом регламентується оформлення переліку джерел посилання у курсових та кваліфікаційних роботах ФКНК?",
+      "documents": [
+        "046_library_thesis_writing_tutorial.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: ДСТУ 8302:2015, затверджений для оформлення списків використаних джерел Наказом МОН України № 40 від 12.01.2017",
+      "id": "fe761564-bb83-49ea-9c66-7f214c855025"
+    },
+    {
+      "question": "Які розділи входять до комплексного іспиту бакалаврів ОПП \"Інформатика\"?",
+      "documents": [
+        "047_final_exam_informatics_bachelor.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Програмування, Математична логіка, Диференціальні рівняння, Дослідження операцій",
+      "id": "34ca4d2a-5a85-47c9-bbb1-ea67476bcff4"
+    },
+    {
+      "question": "Де знайти перелік тем для підготовки до комплексного іспиту бакалаврів спеціальності 122 \"Комп'ютерні науки\" за освітньою програмою \"Інформатика\" 2026 року?",
+      "documents": [
+        "047_final_exam_informatics_bachelor.pdf"
+      ],
+      "labels": [
+        "navigational"
+      ],
+      "comment": "Right answer: 047_final_exam_informatics_bachelor.pdf",
+      "id": "b0b5ab48-2437-4dac-8d19-5e3246db1a45"
+    },
+    {
+      "question": "Які розділи математичного аналізу включені до комплексного іспиту бакалаврів ОПП \"Прикладна математика\"?",
+      "documents": [
+        "048_final_exam_applied_math_bachelor.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: числові послідовності та границі, границя функції та неперервність, похідна та дослідження функцій, інтеграл Рімана, функції багатьох змінних і екстремуми, числові та функціональні ряди, невласні інтеграли, кратні інтеграли, поверхневі і криволінійні інтеграли (формули Гріна, Остроградського, Стокса), міра та інтеграл Лебега",
+      "id": "dd5179f6-48da-4c3b-9a5c-09b2037ff076"
+    },
+    {
+      "question": "Чим відрізняється програма з дослідження операцій на іспиті бакалаврів ОПП \"Прикладна математика\" від аналогічного розділу в іспиті ОПП \"Інформатика\"?",
+      "documents": [
+        "048_final_exam_applied_math_bachelor.pdf",
+        "047_final_exam_informatics_bachelor.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: ОПП «Прикладна математика» включає алгоритм Дальтона-Ллевеліна, задачі квадратичного програмування з квадратичним симплекс-методом, теореми двоїстості; ОПП «Інформатика» -  алгоритми на мережах (метод Мінті, теорема Форда-Фалкерсона), метод віток і границь, угорський метод. Спільні теми: симплекс-метод, методи Гоморі, теорема Куна-Таккера, теорія ігор, градієнтні методи",
+      "id": "37d47890-4518-4f26-888e-63447b66a05b"
+    },
+    {
+      "question": "Які розділи входять до комплексного іспиту бакалаврів ОПП \"Системний аналіз\"?",
+      "documents": [
+        "049_final_exam_system_analysis_bachelor.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: математичний аналіз, алгебра та геометрія, системний аналіз, теорія ймовірностей та математична статистика",
+      "id": "e87cb5b0-d1e9-4551-b098-9fa87e1f0a39"
+    },
+    {
+      "question": "Які розділи входять до комплексного іспиту бакалаврів ОПП \"Програмна інженерія\"?",
+      "documents": [
+        "050_final_exam_software_engineering_bachelor.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: теорія алгоритмів та математична логіка, алгоритми та складність, основи об'єктно-орієнтованого програмування, організація баз даних та знань",
+      "id": "a30a513d-739b-4ce7-80a3-d7f837a054fc"
+    },
+    {
+      "question": "Яка з програм бакалаврату - \"Програмна інженерія\" чи \"Інформатика\" - включає бази даних до комплексного іспиту, і які конкретно теми охоплює цей розділ?\"",
+      "documents": [
+        "050_final_exam_software_engineering_bachelor.pdf",
+        "047_final_exam_informatics_bachelor.pdf"
+      ],
+      "labels": [
+        "comparative",
+        "multitarget"
+      ],
+      "comment": "Right answer: бази даних включені лише до іспиту ОПП \"Програмна інженерія\" (спеціальність 121); охоплюють ER-модель, реляційну модель Кодда, реляційну алгебру та числення, мову SQL, нормальні форми (2НФ, 3НФ, НФБК, 4НФ), аксіоми Армстронга, бази знань та моделі представлення знань; ОПП \"Інформатика\" баз даних на іспиті не має",
+      "id": "a2789f98-b519-49ae-984a-f51eeec36410"
+    },
+    {
+      "question": "Які алгоритми синтаксичного розбору природної мови розглядаються на комплексному іспиті ОНП \"Інформатика\"?",
+      "documents": [
+        "051_final_exam_informatics_master.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Висхідний та низхідний синтаксичний аналіз, алгоритм Ерлі, алгоритм Кока-Янгера-Касамі (CYK)",
+      "id": "25537759-2ddd-46c7-ac15-670b8d6043cb"
+    },
+    {
+      "question": "Які дисципліни охоплює комплексний іспит для магістрів зі спеціальності \"Прикладна математика\" у 2026 році?",
+      "documents": [
+        "052_final_exam_applied_math_master.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Моделювання динамічних систем, Управління проєктами, Методи аналізу операторних систем, Актуальні проблеми прикладної математики",
+      "id": "9aded4de-7d0a-4479-81cc-ad37765154bb"
+    },
+    {
+      "question": "Який розділ іспиту для магістрів-системних аналітиків присвячений сучасним інженерним інструментам на кшталт контейнеризації, оркестрації та потокової аналітики?",
+      "documents": [
+        "053_final_exam_system_analysis_master.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Розділ 5 \"Сучасні технології програмування\"",
+      "id": "f7da6586-a5d0-4754-b736-6b42014dbe5b"
+    },
+    {
+      "question": "Яка навчальна література рекомендована до розділу про нечіткі логіки на іспиті для магістрів зі спеціальності 121?",
+      "documents": [
+        "054_final_exam_software_engineering_master.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Кривий \"Дискретна математика\", Zadeh (1978 та 1973), Tsoukalas & Uhrig \"Fuzzy and neural approaches in engineering\", Leski «Systemy neuronowo-rozmyte\"",
+      "id": "b397f027-2841-4722-8917-080658ad30fe"
+    },
+    {
+      "question": "Який розділ комплексного іспиту для магістрів спеціальності 122 \"Штучний інтелект\" присвячений математичним методам управління маніпуляційними механізмами та побудові їхніх траєкторій?",
+      "documents": [
+        "055_final_exam_artificial_intelligence_master.pdf"
+      ],
+      "labels": [
+        "factoid"
+      ],
+      "comment": "Right answer: Розділ 3 \"Робототехніка / Robotics\"",
+      "id": "30b11ae4-dd12-48da-ab55-b2577a05e3c6"
+    },
+    {
+      "question": "Які тематичні розділи охоплює підсумкове кваліфікаційне випробування для магістрів освітньої програми \"Штучний інтелект\" у 2026 році?",
+      "documents": [
+        "055_final_exam_artificial_intelligence_master.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Інформаційна безпека, Штучний інтелект: принципи та методи, Робототехніка, Проєктування і супровід баз даних та знань",
+      "id": "93ca87f0-1f0e-4bb4-a3df-e8884167d2d8"
+    },
+    {
+      "question": "Які тематичні розділи охоплює підсумкове кваліфікаційне випробування для магістрів освітньої програми \"Математичні методи штучного інтелекту\" у 2026 році?",
+      "documents": [
+        "056_final_exam_math_methods_of_ai_master.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Штучний інтелект: принципи та методи, Комп'ютерний зір, Глибоке навчання, Обробка природної мови",
+      "id": "16df91d1-9823-4d1f-991e-91f80a230b08"
+    },
+    {
+      "question": "Яка рекомендована навчальна література з розпізнавання образів та статистичного навчання наведена в програмі комплексного іспиту для магістрів ОНП \"Мат. методи штучного інтелекту\"?",
+      "documents": [
+        "056_final_exam_math_methods_of_ai_master.pdf"
+      ],
+      "labels": [
+        "descriptive"
+      ],
+      "comment": "Right answer: Bishop \"Pattern Recognition and Machine Learning\", Hastie et al. \"The Elements of Statistical Learning\", Duda et al. \"Pattern Classification\", Theodoridis & Koutroumbas \"Pattern Recognition\", Alpaydin \"Introduction to Machine Learning\"",
+      "id": "fe933d50-eabf-4584-8d7a-cb01a3e37116"
     }
   ]
 }

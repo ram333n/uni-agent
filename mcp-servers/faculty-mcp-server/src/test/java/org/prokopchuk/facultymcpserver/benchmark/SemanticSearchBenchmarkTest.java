@@ -121,7 +121,7 @@ public class SemanticSearchBenchmarkTest {
         TestDataset testDataset = readDataset();
 
         List<Integer> topKValues = List.of(1, 3, 5, 7);
-        final double similarityThreshold = 0.5;
+        final double similarityThreshold = 0.01;
 
         log.info("Starting evaluating metrics. Questions count: {}", testDataset.questions().size());
 
