@@ -1,6 +1,7 @@
 import os
 
 from langchain.agents import create_agent
+from langchain_groq import ChatGroq
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_ollama import ChatOllama
 
@@ -20,11 +21,9 @@ def create_multi_server_mcp_client():
 
 
 async def init_agent():
-    llm = ChatOllama(
-        model="qwen2.5:7b", # TODO: tool invokation issue(schema violence)
-        temperature=0.1,
-        base_url=os.environ["OLLAMA_BASE_URL"],
-        reasoning=False
+    llm = ChatGroq(
+        model="llama-3.3-70b-versatile",
+        api_key=os.environ["GROQ_API_KEY"],
     )
 
     mcp_client = create_multi_server_mcp_client()
