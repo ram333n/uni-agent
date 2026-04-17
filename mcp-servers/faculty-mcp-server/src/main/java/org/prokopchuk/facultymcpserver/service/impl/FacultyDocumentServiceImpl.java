@@ -1,6 +1,12 @@
 package org.prokopchuk.facultymcpserver.service.impl;
 
 import lombok.extern.log4j.Log4j2;
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.AutoDetectParser;
+import org.apache.tika.parser.ParseContext;
+import org.apache.tika.parser.Parser;
+import org.apache.tika.parser.ocr.TesseractOCRConfig;
+import org.apache.tika.sax.BodyContentHandler;
 import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchRequest;
 import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchResultEntry;
 import org.prokopchuk.facultymcpserver.common.dto.SemanticSearchResults;
@@ -11,7 +17,6 @@ import org.prokopchuk.facultymcpserver.repository.FacultyDocumentRepository;
 import org.prokopchuk.facultymcpserver.service.FacultyDocumentService;
 import org.prokopchuk.facultymcpserver.service.FileService;
 import org.springframework.ai.document.Document;
-import org.springframework.ai.reader.tika.TikaDocumentReader;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -61,7 +66,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         }
 
         Long documentId = saveDocument(fileName, fileBytes, contentHash);
-        saveDocumentEmbeddings(documentId, fileBytes);
+        saveDocumentEmbeddings(documentId, fileBytes, fileName);
 
         return documentId;
     }
@@ -81,11 +86,8 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         return saved.getId();
     }
 
-    private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes) {
-        Resource resource = new ByteArrayResource(fileBytes);
-        TikaDocumentReader docReader = new TikaDocumentReader(resource);
-
-        List<Document> rawDocuments = docReader.read();
+    private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes, String fileName) {
+        List<Document> rawDocuments = readDocument(fileBytes, fileName);
         List<Document> chunks = tokenTextSplitter.split(rawDocuments);
 
         for (int i = 0; i < chunks.size(); i++) {
@@ -94,6 +96,32 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         }
 
         vectorStore.add(chunks);
+    }
+
+    private List<Document> readDocument(byte[] fileBytes, String fileName) {
+        Resource resource = new ByteArrayResource(fileBytes);
+
+        return readWithTika(resource);
+    }
+
+    private List<Document> readWithTika(Resource resource) {
+        try {
+            AutoDetectParser parser = new AutoDetectParser();
+            BodyContentHandler handler = new BodyContentHandler(-1);
+            Metadata metadata = new Metadata();
+            ParseContext context = new ParseContext();
+
+            TesseractOCRConfig ocrConfig = new TesseractOCRConfig();
+            ocrConfig.setLanguage("ukr+eng");
+            context.set(TesseractOCRConfig.class, ocrConfig);
+            context.set(Parser.class, parser);
+
+            parser.parse(resource.getInputStream(), handler, metadata, context);
+
+            return List.of(new Document(handler.toString()));
+        } catch (Exception e) {
+            throw new RuntimeException("Tika parsing failed", e);
+        }
     }
 
     @Override
