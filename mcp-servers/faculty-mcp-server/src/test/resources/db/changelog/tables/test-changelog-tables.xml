@@ -1,0 +1,12 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001" author="prokopchuk" runOnChange="false">
+        <comment>Initialize embeddings tables for semantic search test</comment>
+        <sqlFile path="changes/2026-04-17-001-init-embeddings-tables-for-test.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.core.io.Resource;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.TestPropertySource;
@@ -40,7 +41,9 @@ import java.util.stream.Stream;
 @Testcontainers
 @SpringBootTest
 @TestPropertySource(properties = {
-        "semantic-search-benchmark.test-docs.root=classpath:/semantic-search-benchmark"
+        "semantic-search-benchmark.test-docs.root=classpath:/semantic-search-benchmark",
+        "spring.liquibase.change-log=classpath:/db/changelog/test-changelog-master.xml",
+        "spring.liquibase.contexts=prod,test"
 })
 public class SemanticSearchBenchmarkTest {
 
