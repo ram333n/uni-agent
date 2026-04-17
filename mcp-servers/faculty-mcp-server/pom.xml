@@ -32,6 +32,8 @@
         <postgresql.version>42.7.5</postgresql.version>
         <springdoc-openapi-starter.version>2.8.6</springdoc-openapi-starter.version>
         <testcontainers.version>1.20.4</testcontainers.version>
+        <jai-imageio-jpeg2000.version>1.4.0</jai-imageio-jpeg2000.version>
+        <commons-compress.version>1.27.1</commons-compress.version>
     </properties>
     <dependencies>
         <dependency>
@@ -135,17 +137,16 @@
             <scope>test</scope>
         </dependency>
 
-<!--        TODO: refactor-->
         <dependency>
             <groupId>com.github.jai-imageio</groupId>
             <artifactId>jai-imageio-jpeg2000</artifactId>
-            <version>1.4.0</version>
+            <version>${jai-imageio-jpeg2000.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
-            <version>1.27.1</version>
+            <version>${commons-compress.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
