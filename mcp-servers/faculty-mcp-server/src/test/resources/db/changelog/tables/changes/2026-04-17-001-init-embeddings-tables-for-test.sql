@@ -24,3 +24,13 @@ CREATE TABLE IF NOT EXISTS qwen_4b_document_embeddings
     metadata  JSONB,
     embedding VECTOR(2560)
 );
+
+------
+
+CREATE TABLE IF NOT EXISTS bge_m3_document_embeddings
+(
+    id        UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    content   TEXT,
+    metadata  JSONB,
+    embedding VECTOR(1024)
+);
