@@ -34,6 +34,7 @@
         <testcontainers.version>1.20.4</testcontainers.version>
         <jai-imageio-jpeg2000.version>1.4.0</jai-imageio-jpeg2000.version>
         <commons-compress.version>1.27.1</commons-compress.version>
+        <langchain4j.version>1.13.1</langchain4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -152,7 +153,7 @@
         <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j</artifactId>
-            <version>1.13.1</version>
+            <version>${langchain4j.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
