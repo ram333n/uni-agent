@@ -17,7 +17,7 @@ import org.prokopchuk.facultymcpserver.repository.FacultyDocumentRepository;
 import org.prokopchuk.facultymcpserver.service.FacultyDocumentService;
 import org.prokopchuk.facultymcpserver.service.FileService;
 import org.springframework.ai.document.Document;
-import org.springframework.ai.transformer.splitter.TokenTextSplitter;
+import org.springframework.ai.document.DocumentTransformer;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,18 +39,18 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
     private final FacultyDocumentRepository documentRepository;
     private final FileService fileService;
     private final VectorStore vectorStore;
-    private final TokenTextSplitter tokenTextSplitter;
+    private final DocumentTransformer textSplitter;
 
     public FacultyDocumentServiceImpl(
             FacultyDocumentRepository documentRepository,
             FileService fileService,
             @Qualifier("facultyDocumentVectorStore") VectorStore vectorStore,
-            TokenTextSplitter tokenTextSplitter
+            DocumentTransformer textSplitter
     ) {
         this.documentRepository = documentRepository;
         this.fileService = fileService;
         this.vectorStore = vectorStore;
-        this.tokenTextSplitter = tokenTextSplitter;
+        this.textSplitter = textSplitter;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
 
     private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes, String fileName) {
         List<Document> rawDocuments = readDocument(fileBytes, fileName);
-        List<Document> chunks = tokenTextSplitter.split(rawDocuments);
+        List<Document> chunks = textSplitter.transform(rawDocuments);
 
         for (int i = 0; i < chunks.size(); i++) {
             chunks.get(i).getMetadata().put(DOCUMENT_ID_KEY, documentId.toString());

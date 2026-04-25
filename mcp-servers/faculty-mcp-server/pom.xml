@@ -148,6 +148,13 @@
             <artifactId>commons-compress</artifactId>
             <version>${commons-compress.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j</artifactId>
+            <version>1.13.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

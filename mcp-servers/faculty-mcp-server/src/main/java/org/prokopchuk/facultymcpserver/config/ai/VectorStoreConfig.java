@@ -1,5 +1,7 @@
 package org.prokopchuk.facultymcpserver.config.ai;
 
+import org.prokopchuk.facultymcpserver.ingestion.splitter.OverlappingDocumentSplitter;
+import org.springframework.ai.document.DocumentTransformer;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -27,13 +29,24 @@ public class VectorStoreConfig {
                 .build();
     }
 
+//    @Bean
+//    public TokenTextSplitter textSplitter() {
+//        return TokenTextSplitter.builder() //TODO: no overlapping between chunks - need to implement!!!
+//                .withChunkSize(800)
+//                .withMinChunkSizeChars(300)
+//                .withKeepSeparator(true)
+//                .build();
+//    }
+
     @Bean
-    public TokenTextSplitter tokenTextSplitter() {
-        return TokenTextSplitter.builder() //TODO: no overlapping between chunks - need to implement!!!
-                .withChunkSize(800)
-                .withMinChunkSizeChars(300)
-                .withKeepSeparator(true)
-                .build();
+    public DocumentTransformer textSplitter() {
+        int chunkSize = 800;
+        int overlapping = (int) (0.15 * chunkSize);
+
+        return new OverlappingDocumentSplitter(
+                chunkSize,
+                overlapping
+        );
     }
 
 }

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class EmbeddingConfig {
 
     @Bean
-    public EmbeddingModel qwenEmbeddingModel(OllamaApi ollamaApi) {
+    public EmbeddingModel embeddingModel(OllamaApi ollamaApi) {
         return OllamaEmbeddingModel.builder()
                 .ollamaApi(ollamaApi)
                 .defaultOptions(
