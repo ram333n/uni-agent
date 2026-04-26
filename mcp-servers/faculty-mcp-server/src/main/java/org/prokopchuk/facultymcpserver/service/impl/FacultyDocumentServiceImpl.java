@@ -87,7 +87,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
     }
 
     private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes, String fileName) {
-        List<Document> rawDocuments = readDocument(fileBytes, fileName);
+        List<Document> rawDocuments = readDocument(fileBytes);
         List<Document> chunks = textSplitter.transform(rawDocuments);
 
         for (int i = 0; i < chunks.size(); i++) {
@@ -98,7 +98,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         vectorStore.add(chunks);
     }
 
-    private List<Document> readDocument(byte[] fileBytes, String fileName) {
+    private List<Document> readDocument(byte[] fileBytes) {
         Resource resource = new ByteArrayResource(fileBytes);
 
         return readWithTika(resource);
