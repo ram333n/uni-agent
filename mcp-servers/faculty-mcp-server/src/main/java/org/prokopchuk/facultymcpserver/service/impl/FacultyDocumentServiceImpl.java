@@ -66,7 +66,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         }
 
         Long documentId = saveDocument(fileName, fileBytes, contentHash);
-        saveDocumentEmbeddings(documentId, fileBytes, fileName);
+        saveDocumentEmbeddings(documentId, fileBytes);
 
         return documentId;
     }
@@ -86,7 +86,7 @@ public class FacultyDocumentServiceImpl implements FacultyDocumentService {
         return saved.getId();
     }
 
-    private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes, String fileName) {
+    private void saveDocumentEmbeddings(Long documentId, byte[] fileBytes) {
         List<Document> rawDocuments = readDocument(fileBytes);
         List<Document> chunks = textSplitter.transform(rawDocuments);
 
